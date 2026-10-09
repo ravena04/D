@@ -1,0 +1,6828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Before You Go ♡</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #f8f1e7;
+            --paper: #fffaf3;
+            --brown: #4b3a32;
+            --soft-brown: #806b60;
+            --pink: #d99ba5;
+            --lavender: #b9accb;
+            --green: #aab8a0;
+            --shadow: rgba(74, 57, 47, 0.14);
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--brown);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --------------------------------
+           HERO
+        -------------------------------- */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 50px 20px;
+
+            overflow: hidden;
+        }
+
+        /* Paper texture */
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            opacity: 0.18;
+
+            background-image:
+                radial-gradient(#8b776a 0.6px, transparent 0.6px);
+
+            background-size: 18px 18px;
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(1100px, 100%);
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+            gap: 70px;
+        }
+
+        /* --------------------------------
+           TEXT
+        -------------------------------- */
+
+        .eyebrow {
+            font-family: "Caveat", cursive;
+            font-size: 28px;
+            color: var(--pink);
+
+            margin-bottom: 10px;
+
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 8vw, 95px);
+
+            line-height: 0.95;
+
+            font-weight: 500;
+
+            margin-bottom: 25px;
+
+            animation: fadeUp 1s ease 0.15s both;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: var(--pink);
+        }
+
+        .subtitle {
+            font-family: "Caveat", cursive;
+
+            font-size: 31px;
+
+            line-height: 1.15;
+
+            color: var(--soft-brown);
+
+            max-width: 430px;
+
+            animation: fadeUp 1s ease 0.3s both;
+        }
+
+        .enter-btn {
+            margin-top: 35px;
+
+            border: none;
+
+            background: var(--brown);
+            color: white;
+
+            padding: 15px 27px;
+
+            border-radius: 40px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            animation: fadeUp 1s ease 0.45s both;
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-4px) rotate(-1deg);
+            box-shadow: 0 12px 25px var(--shadow);
+        }
+
+        /* --------------------------------
+           PHOTO
+        -------------------------------- */
+
+        .photo-area {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            animation: photoAppear 1.2s ease 0.2s both;
+        }
+
+        .polaroid {
+            background: white;
+
+            width: min(390px, 80vw);
+
+            padding: 14px 14px 65px;
+
+            box-shadow:
+                0 18px 35px rgba(67, 49, 40, 0.16);
+
+            transform: rotate(3deg);
+
+            position: relative;
+
+            transition: transform 0.4s ease;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .polaroid img {
+            display: block;
+
+            width: 100%;
+            aspect-ratio: 4 / 5;
+
+            object-fit: cover;
+
+            background: #eee;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+
+            bottom: 17px;
+            left: 0;
+            right: 0;
+
+            text-align: center;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 24px;
+
+            color: var(--brown);
+        }
+
+        /* Tape */
+
+        .tape {
+            position: absolute;
+
+            width: 105px;
+            height: 28px;
+
+            background: rgba(221, 193, 158, 0.65);
+
+            top: -14px;
+            left: 50%;
+
+            transform: translateX(-50%) rotate(-3deg);
+
+            z-index: 3;
+        }
+
+        /* --------------------------------
+           DOODLES
+        -------------------------------- */
+
+        .doodle {
+            position: absolute;
+
+            font-family: "Caveat", cursive;
+
+            color: var(--pink);
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+        .heart {
+            font-size: 38px;
+        }
+
+        .star {
+            font-size: 27px;
+            color: var(--lavender);
+        }
+
+        .flower {
+            font-size: 32px;
+            color: var(--green);
+        }
+
+        .d1 {
+            top: 12%;
+            left: 7%;
+            transform: rotate(-15deg);
+        }
+
+        .d2 {
+            top: 20%;
+            right: 7%;
+            transform: rotate(15deg);
+        }
+
+        .d3 {
+            bottom: 18%;
+            left: 10%;
+            transform: rotate(10deg);
+        }
+
+        .d4 {
+            bottom: 12%;
+            right: 12%;
+            transform: rotate(-12deg);
+        }
+
+        /* --------------------------------
+           SCROLL HINT
+        -------------------------------- */
+
+        .scroll-hint {
+            position: absolute;
+
+            bottom: 28px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-family: "Caveat", cursive;
+
+            font-size: 20px;
+
+            color: var(--soft-brown);
+
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-hint span {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* --------------------------------
+           NEXT SECTION PREVIEW
+        -------------------------------- */
+
+        #archive {
+            min-height: 100vh;
+
+            padding: 110px 20px;
+
+            background: var(--paper);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .archive-inner {
+            max-width: 800px;
+        }
+
+        .section-label {
+            font-family: "Caveat", cursive;
+
+            color: var(--pink);
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        #archive h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(42px, 7vw, 72px);
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+        }
+
+        #archive p {
+            font-family: "Caveat", cursive;
+
+            font-size: 28px;
+
+            color: var(--soft-brown);
+
+            line-height: 1.3;
+        }
+
+        /* --------------------------------
+           ANIMATIONS
+        -------------------------------- */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes photoAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px) rotate(8deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(3deg);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 8px);
+            }
+
+        }
+
+        /* --------------------------------
+           MOBILE
+        -------------------------------- */
+
+        @media (max-width: 750px) {
+
+            .hero {
+                min-height: 100svh;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                gap: 45px;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .photo-area {
+                order: 2;
+            }
+
+            .subtitle {
+                margin: auto;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .doodle {
+                opacity: 0.65;
+            }
+
+            .d1 {
+                left: 3%;
+            }
+
+            .d2 {
+                right: 3%;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================
+         HERO
+    ================================= -->
+
+    <section class="hero">
+
+        <!-- Cute floating doodles -->
+
+        <div class="doodle heart d1">♡</div>
+        <div class="doodle star d2">✦</div>
+        <div class="doodle flower d3">✿</div>
+        <div class="doodle heart d4">♡</div>
+
+
+        <div class="hero-content">
+
+            <!-- TEXT -->
+
+            <div class="hero-text">
+
+                <div class="eyebrow">
+                    a little something for you ♡
+                </div>
+
+                <h1>
+                    Before<br>
+                    <span>you go.</span>
+                </h1>
+
+                <p class="subtitle">
+                    Four years. One room.
+                    And way too many memories.
+                </p>
+
+                <button
+                    class="enter-btn"
+                    onclick="enterArchive()">
+
+                    enter our little archive →
+                    
+                </button>
+
+            </div>
+
+
+            <!-- PHOTO -->
+
+            <div class="photo-area">
+
+                <div class="polaroid">
+
+                    <div class="tape"></div>
+
+                    <!-- CHANGE THIS IMAGE -->
+                    <img
+                        src="images/photo1.jpeg"
+                        alt="A memory of us">
+
+                    <div class="polaroid-caption">
+                        somewhere along the way, we became home.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="scroll-hint">
+            scroll a little
+            <span>↓</span>
+        </div>
+
+    </section>
+<!-- =====================================================
+     SECTION 2 — OUR ROOMMATE ERA
+===================================================== -->
+
+<section class="roommate-era" id="roommate-era">
+
+    <!-- Decorative doodles -->
+    <div class="era-doodle doodle-heart">♡</div>
+    <div class="era-doodle doodle-star">✦</div>
+    <div class="era-doodle doodle-flower">✿</div>
+    <div class="era-doodle doodle-sparkle">✧</div>
+
+
+    <!-- Section heading -->
+    <div class="era-heading">
+
+        <p class="era-small-title">
+            a little trip down memory lane ♡
+        </p>
+
+        <h2>
+            Our Roommate <span>Era</span>
+        </h2>
+
+        <p class="era-intro">
+            Four years, one room, countless little moments.
+        </p>
+
+        <div class="era-line">
+            <span></span>
+            ♡
+            <span></span>
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+         TIMELINE
+    ================================= -->
+
+    <div class="timeline">
+
+
+        <!-- ===============================
+             2023 — THE BEGINNING
+        ================================= -->
+
+        <div class="timeline-item left year-2023">
+
+            <div class="year-marker">
+                <span>2023</span>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="memory-text">
+
+                    <p class="memory-date">
+                        13 September 2023
+                    </p>
+
+                    <h3>
+                        The Beginning
+                    </h3>
+
+                    <p class="memory-description">
+                        The day three strangers were introduced
+                        as roommates...
+                    </p>
+
+                    <p class="handwritten">
+                        Little did we know. ♡
+                    </p>
+
+                </div>
+
+
+                <div class="photo-pair">
+
+                    <div class="memory-photo photo-one">
+                        <div class="tape-small"></div>
+
+                        <img
+                            src="images/2023-1.jpeg"
+                            alt="Our first roommate memory">
+
+                        <span>
+                            first meet ♡
+                        </span>
+                    </div>
+
+
+                    <div class="memory-photo photo-two">
+                        <img
+                            src="images/2023-2.jpeg"
+                            alt="Our first roommate photo">
+
+                        <span>
+                            roomie era begins
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===============================
+             2024 — ROOM 103
+        ================================= -->
+
+        <div class="timeline-item right year-2024">
+
+            <div class="year-marker">
+                <span>2024</span>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="memory-text">
+
+                    <p class="memory-date">
+                        room 103 chronicles
+                    </p>
+
+                    <h3>
+                        When Room 103
+                        Became Home
+                    </h3>
+
+                    <p class="memory-description">
+                        Late-night gossip, random conversations,
+                        our first outing as Room 103,
+                        and approximately a million little moments.
+                    </p>
+
+                    <div class="tiny-memories">
+
+                        <span>🌙 late night gossip</span>
+                        <span>🫶 room 103</span>
+                        <span>😂 saree sessions</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="photo-pair">
+
+                    <div class="memory-photo photo-three">
+                        <div class="tape-small"></div>
+
+                        <img
+                            src="images/2024-1.jpeg"
+                            alt="Room 103 memory">
+
+                        <span>
+                            IV ♡
+                        </span>
+                    </div>
+
+
+                    <div class="memory-photo photo-four">
+
+                        <img
+                            src="images/2024-2.jpeg"
+                            alt="Saree draping session">
+
+                        <span>
+                            🫶
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="side-note note-2024">
+                    <span>✦</span>
+                    professional services,
+                    zero qualifications
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===============================
+             2025 — GETTING READY ERA
+        ================================= -->
+
+        <div class="timeline-item left year-2025">
+
+            <div class="year-marker">
+                <span>2025</span>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="memory-text">
+
+                    <p class="memory-date">
+                        the getting ready era
+                    </p>
+
+                    <h3>
+                        Getting Ready
+                        & Everything In Between
+                    </h3>
+
+                    <p class="memory-description">
+                        Getting ready was never just getting ready.
+                        There were mirror pictures, movies,
+                        conversations and somehow always...
+                    </p>
+
+                    <p class="handwritten">
+                        "Are you ready?" 😂
+                    </p>
+
+                </div>
+
+
+                <div class="photo-pair">
+
+                    <div class="memory-photo photo-five">
+
+                        <img
+                            src="images/2025-1.jpeg"
+                            alt="Getting ready together">
+
+                        <span>
+                             ♡♡♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="memory-photo photo-six">
+                        <div class="tape-small"></div>
+
+                        <img
+                            src="images/2025-2.jpeg"
+                            alt="Movie memory">
+
+                        <span>
+                            ♡♡
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===============================
+             2026 — DUO ERA
+        ================================= -->
+
+        <div class="timeline-item right year-2026">
+
+            <div class="year-marker">
+                <span>2026</span>
+            </div>
+
+            <div class="timeline-content final-memory">
+
+                <div class="memory-text">
+
+                    <p class="memory-date">
+                        the final chapter... for now
+                    </p>
+
+                    <h3>
+                        The Best Days✦
+                    </h3>
+
+                    <p class="memory-description">
+                        After all those years of sharing a room,
+                        we finally had our first outing as a duo 😂
+                        
+                    </p>
+
+                    <p class="handwritten">
+                        A mini outing ♡
+                    </p>
+
+                </div>
+
+
+                <div class="single-memory-photo">
+
+                    <div class="tape-large"></div>
+
+                    <img
+                        src="images/2026-1.jpeg"
+                        alt="Our first outing as a duo">
+
+                    <div class="photo-caption">
+
+                        <span>
+                            first outing as a duo ♡
+                        </span>
+
+                        <small>
+                            somehow four years happened...
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ===============================
+         END OF TIMELINE
+    ================================= -->
+
+    <div class="era-ending">
+
+        <div class="ending-doodle">
+            ✿
+        </div>
+
+        <p>
+            And just like that...
+        </p>
+
+        <h3>
+            four years became
+            a thousand memories.
+        </h3>
+
+        <div class="ending-heart">
+            ♡
+        </div>
+
+        <a href="#roommate-survival" class="next-memory">
+            there's more → 
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECTION 2 STYLES
+===================================================== -->
+
+<style>
+
+    /* ================================================
+       ROOMMATE ERA — MAIN
+    ================================================= */
+
+    .roommate-era {
+
+        position: relative;
+
+        background:
+            radial-gradient(
+                circle at 10% 20%,
+                rgba(217,155,165,0.10),
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 90% 70%,
+                rgba(185,172,203,0.12),
+                transparent 25%
+            ),
+            #fffaf3;
+
+        padding: 140px 20px 160px;
+
+        overflow: hidden;
+
+        color: #4b3a32;
+
+    }
+
+
+    /* ================================================
+       HEADING
+    ================================================= */
+
+    .era-heading {
+
+        max-width: 850px;
+
+        margin: 0 auto 120px;
+
+        text-align: center;
+
+        position: relative;
+
+        z-index: 2;
+
+    }
+
+
+    .era-small-title {
+
+        font-family: "Caveat", cursive;
+
+        color: #d99ba5;
+
+        font-size: 25px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .era-heading h2 {
+
+        font-family: "Playfair Display", serif;
+
+        font-size: clamp(48px, 7vw, 78px);
+
+        font-weight: 500;
+
+        line-height: 1;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .era-heading h2 span {
+
+        color: #d99ba5;
+
+        font-style: italic;
+
+    }
+
+
+    .era-intro {
+
+        font-family: "Caveat", cursive;
+
+        font-size: 28px;
+
+        color: #806b60;
+
+    }
+
+
+    .era-line {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        margin-top: 25px;
+
+        color: #d99ba5;
+
+    }
+
+
+    .era-line span {
+
+        width: 100px;
+
+        height: 1px;
+
+        background: #dbc8bb;
+
+    }
+
+
+    /* ================================================
+       TIMELINE
+    ================================================= */
+
+    .timeline {
+
+        width: min(1100px, 100%);
+
+        margin: auto;
+
+        position: relative;
+
+    }
+
+
+    /* Central line */
+
+    .timeline::before {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        bottom: 0;
+
+        left: 50%;
+
+        width: 2px;
+
+        transform: translateX(-50%);
+
+        background:
+
+            repeating-linear-gradient(
+                to bottom,
+                #d8bfc0 0px,
+                #d8bfc0 7px,
+                transparent 7px,
+                transparent 15px
+            );
+
+        opacity: 0.8;
+
+    }
+
+
+    /* ================================================
+       TIMELINE ITEMS
+    ================================================= */
+
+    .timeline-item {
+
+        position: relative;
+
+        width: 100%;
+
+        margin-bottom: 190px;
+
+        min-height: 420px;
+
+    }
+
+
+    .timeline-item:last-child {
+
+        margin-bottom: 80px;
+
+    }
+
+
+    /* ================================================
+       YEAR MARKER
+    ================================================= */
+
+    .year-marker {
+
+        position: absolute;
+
+        left: 50%;
+
+        top: 0;
+
+        transform: translateX(-50%);
+
+        width: 92px;
+
+        height: 92px;
+
+        border-radius: 50%;
+
+        background: #fffaf3;
+
+        border: 2px solid #d9b8b5;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        z-index: 5;
+
+        box-shadow:
+            0 5px 15px rgba(74,57,47,0.08);
+
+    }
+
+
+    .year-marker::before {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 7px;
+
+        border: 1px dashed #d9b8b5;
+
+        border-radius: 50%;
+
+    }
+
+
+    .year-marker span {
+
+        font-family: "Caveat", cursive;
+
+        font-size: 27px;
+
+        color: #806b60;
+
+        position: relative;
+
+        z-index: 2;
+
+    }
+
+
+    /* ================================================
+       CONTENT
+    ================================================= */
+
+    .timeline-content {
+
+        width: 44%;
+
+        position: relative;
+
+    }
+
+
+    .timeline-item.left .timeline-content {
+
+        margin-left: 0;
+
+        padding-right: 40px;
+
+        text-align: right;
+
+    }
+
+
+    .timeline-item.right .timeline-content {
+
+        margin-left: 56%;
+
+        padding-left: 40px;
+
+        text-align: left;
+
+    }
+
+
+    /* ================================================
+       TEXT
+    ================================================= */
+
+    .memory-date {
+
+        font-family: "Caveat", cursive;
+
+        font-size: 22px;
+
+        color: #d99ba5;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .memory-text h3 {
+
+        font-family: "Playfair Display", serif;
+
+        font-size: clamp(30px, 4vw, 43px);
+
+        line-height: 1.05;
+
+        font-weight: 500;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .memory-description {
+
+        font-family: "DM Sans", sans-serif;
+
+        color: #806b60;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+    }
+
+
+    .handwritten {
+
+        font-family: "Caveat", cursive;
+
+        color: #8e7569;
+
+        font-size: 25px;
+
+        margin-top: 15px;
+
+    }
+
+
+    /* ================================================
+       PHOTOS
+    ================================================= */
+
+    .photo-pair {
+
+        display: flex;
+
+        gap: 18px;
+
+        margin-top: 35px;
+
+    }
+
+
+    .timeline-item.left .photo-pair {
+
+        justify-content: flex-end;
+
+    }
+
+
+    .memory-photo {
+
+        background: white;
+
+        padding: 9px 9px 42px;
+
+        width: 170px;
+
+        position: relative;
+
+        box-shadow:
+            0 12px 25px rgba(74,57,47,0.13);
+
+        transition:
+            transform 0.4s ease,
+            box-shadow 0.4s ease;
+
+    }
+
+
+    .memory-photo:hover {
+
+        transform:
+            translateY(-8px)
+            rotate(0deg)
+            scale(1.03);
+
+        box-shadow:
+            0 20px 35px rgba(74,57,47,0.18);
+
+    }
+
+
+    .memory-photo img {
+
+        width: 100%;
+
+        aspect-ratio: 1 / 1.12;
+
+        object-fit: cover;
+
+        display: block;
+
+        background: #eee;
+
+    }
+
+
+    .memory-photo span {
+
+        position: absolute;
+
+        bottom: 11px;
+
+        left: 5px;
+        right: 5px;
+
+        text-align: center;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 18px;
+
+        color: #5e4b42;
+
+    }
+
+
+    /* Polaroid rotations */
+
+    .photo-one {
+
+        transform: rotate(-5deg);
+
+    }
+
+
+    .photo-two {
+
+        transform: rotate(4deg);
+
+    }
+
+
+    .photo-three {
+
+        transform: rotate(5deg);
+
+    }
+
+
+    .photo-four {
+
+        transform: rotate(-4deg);
+
+    }
+
+
+    .photo-five {
+
+        transform: rotate(-4deg);
+
+    }
+
+
+    .photo-six {
+
+        transform: rotate(5deg);
+
+    }
+
+
+    /* ================================================
+       TAPE
+    ================================================= */
+
+    .tape-small {
+
+        position: absolute;
+
+        width: 65px;
+        height: 19px;
+
+        top: -10px;
+        left: 50%;
+
+        transform:
+            translateX(-50%)
+            rotate(-3deg);
+
+        background:
+            rgba(224, 195, 160, 0.68);
+
+        z-index: 3;
+
+    }
+
+
+    /* ================================================
+       TINY MEMORY TAGS
+    ================================================= */
+
+    .tiny-memories {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        margin-top: 20px;
+
+    }
+
+
+    .timeline-item.left .tiny-memories {
+
+        justify-content: flex-end;
+
+    }
+
+
+    .tiny-memories span {
+
+        background: #f3e7e0;
+
+        padding: 7px 12px;
+
+        border-radius: 30px;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 17px;
+
+        color: #806b60;
+
+    }
+
+
+    /* ================================================
+       SIDE NOTE
+    ================================================= */
+
+    .side-note {
+
+        position: absolute;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 20px;
+
+        color: #9a8176;
+
+        transform: rotate(-4deg);
+
+        max-width: 150px;
+
+    }
+
+
+    .note-2024 {
+
+        right: -145px;
+
+        bottom: -40px;
+
+    }
+
+
+    .side-note span {
+
+        color: #d99ba5;
+
+        font-size: 25px;
+
+    }
+
+
+    /* ================================================
+       2026 LARGE PHOTO
+    ================================================= */
+
+    .final-memory {
+
+        min-height: 540px;
+
+    }
+
+
+    .single-memory-photo {
+
+        position: relative;
+
+        width: min(390px, 100%);
+
+        margin-top: 35px;
+
+        background: white;
+
+        padding: 12px 12px 72px;
+
+        box-shadow:
+            0 20px 40px rgba(74,57,47,0.16);
+
+        transform: rotate(-3deg);
+
+        transition: transform 0.4s ease;
+
+    }
+
+
+    .single-memory-photo:hover {
+
+        transform: rotate(0deg) scale(1.02);
+
+    }
+
+
+    .single-memory-photo img {
+
+        display: block;
+
+        width: 100%;
+
+        aspect-ratio: 4 / 5;
+
+        object-fit: cover;
+
+        background: #eee;
+
+    }
+
+
+    .photo-caption {
+
+        position: absolute;
+
+        bottom: 15px;
+
+        left: 0;
+        right: 0;
+
+        text-align: center;
+
+    }
+
+
+    .photo-caption span {
+
+        display: block;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 25px;
+
+        color: #5e4b42;
+
+    }
+
+
+    .photo-caption small {
+
+        display: block;
+
+        margin-top: 2px;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 17px;
+
+        color: #9a8176;
+
+    }
+
+
+    .tape-large {
+
+        position: absolute;
+
+        width: 110px;
+
+        height: 28px;
+
+        background: rgba(224,195,160,0.68);
+
+        top: -15px;
+
+        left: 50%;
+
+        transform: translateX(-50%) rotate(2deg);
+
+        z-index: 3;
+
+    }
+
+
+    /* ================================================
+       ENDING
+    ================================================= */
+
+    .era-ending {
+
+        text-align: center;
+
+        max-width: 700px;
+
+        margin: 30px auto 0;
+
+        position: relative;
+
+    }
+
+
+    .ending-doodle {
+
+        color: #aab8a0;
+
+        font-size: 35px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .era-ending > p {
+
+        font-family: "Caveat", cursive;
+
+        font-size: 27px;
+
+        color: #9a8176;
+
+    }
+
+
+    .era-ending h3 {
+
+        font-family: "Playfair Display", serif;
+
+        font-size: clamp(34px, 5vw, 52px);
+
+        font-weight: 500;
+
+        line-height: 1.15;
+
+        margin: 10px 0;
+
+    }
+
+
+    .ending-heart {
+
+        font-size: 30px;
+
+        color: #d99ba5;
+
+        margin: 15px 0 30px;
+
+    }
+
+
+    .next-memory {
+
+        display: inline-block;
+
+        text-decoration: none;
+
+        color: white;
+
+        background: #4b3a32;
+
+        padding: 13px 24px;
+
+        border-radius: 30px;
+
+        font-size: 14px;
+
+        transition: all 0.3s ease;
+
+    }
+
+
+    .next-memory:hover {
+
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 10px 20px rgba(74,57,47,0.15);
+
+    }
+
+
+    /* ================================================
+       DOODLES
+    ================================================= */
+
+    .era-doodle {
+
+        position: absolute;
+
+        pointer-events: none;
+
+        opacity: 0.6;
+
+    }
+
+
+    .doodle-heart {
+
+        top: 7%;
+
+        left: 7%;
+
+        color: #d99ba5;
+
+        font-family: "Caveat", cursive;
+
+        font-size: 50px;
+
+        transform: rotate(-15deg);
+
+    }
+
+
+    .doodle-star {
+
+        top: 18%;
+
+        right: 7%;
+
+        color: #b9accb;
+
+        font-size: 32px;
+
+        transform: rotate(15deg);
+
+    }
+
+
+    .doodle-flower {
+
+        bottom: 20%;
+
+        left: 5%;
+
+        color: #aab8a0;
+
+        font-size: 40px;
+
+        transform: rotate(10deg);
+
+    }
+
+
+    .doodle-sparkle {
+
+        bottom: 8%;
+
+        right: 8%;
+
+        color: #d99ba5;
+
+        font-size: 30px;
+
+    }
+
+
+    /* ================================================
+       MOBILE
+    ================================================= */
+
+    @media (max-width: 800px) {
+
+        .roommate-era {
+
+            padding-top: 100px;
+
+        }
+
+
+        .era-heading {
+
+            margin-bottom: 80px;
+
+        }
+
+
+        /* Move timeline to left */
+
+        .timeline::before {
+
+            left: 28px;
+
+            transform: none;
+
+        }
+
+
+        .timeline-item {
+
+            margin-bottom: 130px;
+
+            min-height: auto;
+
+            padding-left: 65px;
+
+        }
+
+
+        .year-marker {
+
+            left: 28px;
+
+            width: 58px;
+            height: 58px;
+
+        }
+
+
+        .year-marker::before {
+
+            inset: 5px;
+
+        }
+
+
+        .year-marker span {
+
+            font-size: 20px;
+
+        }
+
+
+        .timeline-content,
+
+        .timeline-item.left .timeline-content,
+        .timeline-item.right .timeline-content {
+
+            width: 100%;
+
+            margin-left: 0;
+
+            padding: 0;
+
+            text-align: left;
+
+        }
+
+
+        .timeline-item.left .tiny-memories {
+
+            justify-content: flex-start;
+
+        }
+
+
+        .photo-pair {
+
+            justify-content: flex-start !important;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .memory-photo {
+
+            width: calc(50% - 10px);
+
+        }
+
+
+        .side-note {
+
+            position: static;
+
+            margin-top: 20px;
+
+        }
+
+
+        .single-memory-photo {
+
+            width: 100%;
+
+        }
+
+
+        .doodle-heart {
+
+            left: 2%;
+
+        }
+
+
+        .doodle-star {
+
+            right: 2%;
+
+        }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+        .memory-photo {
+
+            width: 46%;
+
+        }
+
+
+        .photo-pair {
+
+            gap: 10px;
+
+        }
+
+
+        .memory-photo span {
+
+            font-size: 16px;
+
+        }
+
+
+        .era-heading h2 {
+
+            font-size: 48px;
+
+        }
+
+    }
+
+</style>
+<!-- =========================================================
+     SECTION 3 — ROOMMATE SURVIVAL GUIDE
+     Paste this entire block immediately after Section 2
+========================================================= -->
+
+<section class="roommate-survival" id="roommate-survival">
+
+    <style>
+        /* =========================
+           SECTION 3 — SURVIVAL GUIDE
+        ========================= */
+
+        .roommate-survival {
+            position: relative;
+            padding: 120px 20px;
+            background:
+                linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+                #e9d9d4;
+            overflow: hidden;
+        }
+
+        .roommate-survival::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(
+                    rgba(130, 100, 90, 0.06) 1px,
+                    transparent 1px
+                );
+            background-size: 100% 32px;
+            pointer-events: none;
+        }
+
+        /* Main paper */
+
+        .survival-paper {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            padding: 55px 65px 70px;
+
+            background: #fffaf3;
+
+            border: 1px solid rgba(90, 65, 55, 0.15);
+
+            box-shadow:
+                0 20px 50px rgba(80, 50, 40, 0.12),
+                8px 8px 0 rgba(130, 90, 80, 0.08);
+
+            transform: rotate(-0.3deg);
+        }
+
+        /* Top document line */
+
+        .document-top {
+            display: flex;
+            justify-content: space-between;
+
+            padding-bottom: 14px;
+
+            border-bottom: 1px dashed #b9a29b;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #80675f;
+        }
+
+        /* Header */
+
+        .survival-header {
+            position: relative;
+            text-align: center;
+            padding: 55px 0 40px;
+        }
+
+        .guide-small {
+            margin: 0 0 8px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #92776e;
+            font-weight: 700;
+        }
+
+        .survival-header h2 {
+            margin: 0;
+
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 0.92;
+            letter-spacing: -2px;
+            color: #493b38;
+        }
+
+        .survival-header h2 span {
+            color: #9d6f78;
+        }
+
+        .guide-subtitle {
+            margin: 25px 0 0;
+
+            font-family: "Caveat", cursive;
+            font-size: 22px;
+            line-height: 1.2;
+            color: #806b64;
+        }
+
+        /* Warning sticker */
+
+        .warning-sticker {
+            position: absolute;
+            right: 0;
+            top: 35px;
+
+            padding: 9px 14px;
+
+            background: #e5b7ad;
+            color: #594440;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            transform: rotate(5deg);
+
+            box-shadow: 3px 3px 0 rgba(90, 60, 50, 0.12);
+        }
+
+        /* Fake roommate file */
+
+        .roommate-file {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+            padding: 25px 28px;
+
+            border: 1px solid #cdbab3;
+            background: #f8eee8;
+        }
+
+        .file-details {
+            flex: 1;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding: 9px 0;
+
+            border-bottom: 1px dotted #c7b1a9;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row span {
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            color: #927c75;
+            font-weight: 700;
+        }
+
+        .detail-row strong {
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            color: #574743;
+        }
+
+        /* Stamp */
+
+        .research-stamp {
+            width: 105px;
+            height: 105px;
+
+            border: 2px solid #a66d77;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            color: #a66d77;
+
+            transform: rotate(-12deg);
+        }
+
+        /* Statistics */
+
+        .survival-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            margin: 45px 0;
+
+            border-top: 1px solid #cdbab3;
+            border-bottom: 1px solid #cdbab3;
+        }
+
+        .stat {
+            padding: 22px 12px;
+            text-align: center;
+
+            border-right: 1px solid #d7c6c0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            color: #9d6f78;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 6px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            line-height: 1.4;
+            color: #76635d;
+        }
+
+        /* Field notes */
+
+        .rules-heading {
+            margin: 60px 0 25px;
+        }
+
+        .rules-heading span {
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #a66d77;
+        }
+
+        .rules-heading h3 {
+            margin: 8px 0 0;
+
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.05;
+            color: #493b38;
+        }
+
+        /* Rule cards */
+
+        .survival-rules {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .rule-card {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: 55px 55px 1fr 30px;
+            align-items: center;
+            gap: 15px;
+
+            padding: 23px 25px;
+
+            background: #fdf8f2;
+            border: 1px solid #d8c8c1;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .rule-card:nth-child(even) {
+            background: #f8f0eb;
+        }
+
+        .rule-card:hover {
+            transform: translateX(7px) rotate(0.2deg);
+
+            box-shadow:
+                5px 5px 0 rgba(166, 109, 119, 0.12);
+        }
+
+        .rule-number {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            color: #a66d77;
+        }
+
+        .rule-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #ead8d2;
+
+            font-size: 19px;
+        }
+
+        .rule-content {
+            padding-right: 15px;
+        }
+
+        .rule-label {
+            margin: 0 0 5px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            color: #a06f77;
+        }
+
+        .rule-content h4 {
+            margin: 0 0 5px;
+
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            color: #4e403c;
+        }
+
+        .rule-content > p:last-child {
+            margin: 0;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #76645e;
+        }
+
+        .rule-check {
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #a66d77;
+            border-radius: 50%;
+
+            font-size: 13px;
+            color: #a66d77;
+        }
+
+        /* Final verdict */
+
+        .official-verdict {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: 130px 1fr 150px;
+            align-items: center;
+            gap: 30px;
+
+            margin-top: 60px;
+            padding: 35px;
+
+            background: #ead8d2;
+            border: 1px dashed #b68e87;
+        }
+
+        .verdict-stamp {
+            width: 105px;
+            height: 105px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border: 3px double #a66d77;
+            border-radius: 50%;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            color: #a66d77;
+
+            transform: rotate(-8deg);
+        }
+
+        .verdict-text > p {
+            margin: 0 0 8px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #9b7078;
+        }
+
+        .verdict-text h3 {
+            margin: 0 0 8px;
+
+            font-family: "Caveat", cursive;
+            font-size: 24px;
+            font-weight: 400;
+            color: #6e5751;
+        }
+
+        .verdict-text strong {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            line-height: 1.15;
+            color: #493b38;
+        }
+
+        .fake-signature {
+            text-align: center;
+            padding-left: 15px;
+        }
+
+        .fake-signature span {
+            display: block;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            color: #8b756e;
+        }
+
+        .fake-signature b {
+            display: block;
+            margin-top: 5px;
+
+            font-family: "Caveat", cursive;
+            font-size: 25px;
+            font-weight: 400;
+            color: #574540;
+        }
+
+        .fake-signature small {
+            font-family: "DM Sans", sans-serif;
+            font-size: 9px;
+            color: #927c75;
+        }
+
+        /* Continue */
+
+        .survival-next {
+            text-align: center;
+            padding-top: 55px;
+        }
+
+        .survival-next p {
+            margin: 0 0 12px;
+
+            font-family: "Caveat", cursive;
+            font-size: 19px;
+            color: #806b64;
+        }
+
+        .survival-next a {
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            border: 1px solid #9d6f78;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: #8e626b;
+            text-decoration: none;
+
+            transition: all 0.25s ease;
+        }
+
+        .survival-next a:hover {
+            background: #9d6f78;
+            color: #fffaf3;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .roommate-survival {
+                padding: 70px 12px;
+            }
+
+            .survival-paper {
+                padding: 35px 20px 45px;
+            }
+
+            .document-top {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+
+            .warning-sticker {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+
+                font-size: 8px;
+            }
+
+            .survival-header {
+                padding: 35px 0;
+            }
+
+            .survival-header h2 {
+                font-size: 45px;
+            }
+
+            .guide-subtitle {
+                font-size: 19px;
+            }
+
+            .roommate-file {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .research-stamp {
+                align-self: center;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .survival-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid #d7c6c0;
+            }
+
+            .rule-card {
+                grid-template-columns: 35px 42px 1fr;
+                gap: 10px;
+                padding: 18px 14px;
+            }
+
+            .rule-check {
+                display: none;
+            }
+
+            .rule-number {
+                font-size: 18px;
+            }
+
+            .rule-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .rule-content h4 {
+                font-size: 17px;
+            }
+
+            .rule-content > p:last-child {
+                font-size: 11px;
+            }
+
+            .official-verdict {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+                gap: 20px;
+                padding: 30px 20px;
+            }
+
+            .fake-signature {
+                padding-left: 0;
+            }
+        }
+    </style>
+
+
+    <!-- DOCUMENT -->
+
+    <div class="survival-paper">
+
+        <!-- Top -->
+        <div class="document-top">
+            <span>ROOM 103 ARCHIVES</span>
+            <span>CONFIDENTIAL ♡</span>
+        </div>
+
+
+        <!-- Header -->
+
+        <div class="survival-header">
+
+            <div class="warning-sticker">
+                ⚠️ USE WITH CAUTION
+            </div>
+
+            <p class="guide-small">
+                THE OFFICIAL
+            </p>
+
+            <h2>
+                ROOMMATE<br>
+                <span>SURVIVAL GUIDE</span>
+            </h2>
+
+            <p class="guide-subtitle">
+                A scientifically questionable manual<br>
+                based on four years of field research.
+            </p>
+
+        </div>
+
+
+        <!-- Roommate File -->
+
+        <div class="roommate-file">
+
+            <div class="file-details">
+
+                <div class="detail-row">
+                    <span>ISSUED TO</span>
+                    <strong>Dhiviii ♡</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>ROOMMATE SINCE</span>
+                    <strong>13.09.2023</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>LOCATION</span>
+                    <strong>ROOM 103</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>STATUS</span>
+                    <strong>STILL SURVIVING</strong>
+                </div>
+
+            </div>
+
+            <div class="research-stamp">
+                4 YEARS<br>
+                OF<br>
+                RESEARCH
+            </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+
+        <div class="survival-stats">
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>
+                    Late-night<br>
+                    gossips
+                </span>
+            </div>
+
+            <div class="stat">
+                <strong>847+</strong>
+                <span>
+                    "Are you<br>
+                    ready?"
+                </span>
+            </div>
+
+            <div class="stat">
+                <strong>100+</strong>
+                <span>
+                    Movie<br>
+                    nights
+                </span>
+            </div>
+
+            <div class="stat">
+                <strong>CLASSIFIED</strong>
+                <span>
+                    Saree<br>
+                    emergencies
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- Rules Heading -->
+
+        <div class="rules-heading">
+
+            <span>FIELD NOTES</span>
+
+            <h3>
+                The rules we somehow<br>
+                never wrote down.
+            </h3>
+
+        </div>
+
+
+        <!-- Rules -->
+
+        <div class="survival-rules">
+
+            <!-- Rule 01 -->
+
+            <div class="rule-card">
+
+                <div class="rule-number">
+                    01
+                </div>
+
+                <div class="rule-icon">
+                    🌙
+                </div>
+
+                <div class="rule-content">
+
+                    <p class="rule-label">
+                        THE "GOODNIGHT" RULE
+                    </p>
+
+                    <h4>
+                        Goodnight does not mean goodnight.
+                    </h4>
+
+                    <p>
+                        Saying "okay, goodnight" is merely
+                        the beginning of another conversation.
+                    </p>
+
+                </div>
+
+                <div class="rule-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <!-- Rule 02 -->
+
+            <div class="rule-card">
+
+                <div class="rule-number">
+                    02
+                </div>
+
+                <div class="rule-icon">
+                    👀
+                </div>
+
+                <div class="rule-content">
+
+                    <p class="rule-label">
+                        THE 1 AM GOSSIP PROTOCOL
+                    </p>
+
+                    <h4>
+                        "Wait, I forgot to tell you something..."
+                    </h4>
+
+                    <p>
+                        If these words are spoken after midnight,
+                        prepare yourself for another 45 minutes.
+                    </p>
+
+                </div>
+
+                <div class="rule-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <!-- Rule 03 -->
+
+            <div class="rule-card">
+
+                <div class="rule-number">
+                    03
+                </div>
+
+                <div class="rule-icon">
+                    💄
+                </div>
+
+                <div class="rule-content">
+
+                    <p class="rule-label">
+                        THE GETTING READY RULE
+                    </p>
+
+                    <h4>
+                        "I'm almost ready" is a lie.
+                    </h4>
+
+                    <p>
+                        Nobody knows exactly when we were
+                        actually ready. And honestly, that's okay.
+                    </p>
+
+                </div>
+
+                <div class="rule-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <!-- Rule 04 -->
+
+            <div class="rule-card">
+
+                <div class="rule-number">
+                    04
+                </div>
+
+                <div class="rule-icon">
+                    🎬
+                </div>
+
+                <div class="rule-content">
+
+                    <p class="rule-label">
+                        THE MOVIE NIGHT LAW
+                    </p>
+
+                    <h4>
+                        One movie is never just one movie.
+                    </h4>
+
+                    <p>
+                        A movie night may unexpectedly transform
+                        into snacks, gossip, another movie and chaos.
+                    </p>
+
+                </div>
+
+                <div class="rule-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <!-- Rule 05 -->
+
+            <div class="rule-card">
+
+                <div class="rule-number">
+                    05
+                </div>
+
+                <div class="rule-icon">
+                    👗
+                </div>
+
+                <div class="rule-content">
+
+                    <p class="rule-label">
+                        THE SAREE DEPARTMENT
+                    </p>
+
+                    <h4>
+                        Professional saree draping services.
+                    </h4>
+
+                    <p>
+                        Available exclusively in Room 103.
+                        Payment accepted in snacks, compliments
+                        and emotional support. 😂
+                    </p>
+
+                </div>
+
+                <div class="rule-check">
+                    ✓
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Final Verdict -->
+
+        <div class="official-verdict">
+
+            <div class="verdict-stamp">
+                OFFICIALLY<br>
+                APPROVED
+            </div>
+
+            <div class="verdict-text">
+
+                <p>
+                    FINAL VERDICT
+                </p>
+
+                <h3>
+                    After four years of observation...
+                </h3>
+
+                <strong>
+                    You are officially<br>
+                    irreplaceable. ♡
+                </strong>
+
+            </div>
+
+            <div class="fake-signature">
+
+                <span>
+                    Signed by
+                </span>
+
+                <b>
+                    Room 103
+                </b>
+
+                <small>
+                    ♡ your roommate
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Continue -->
+
+        <div class="survival-next">
+
+            <p>
+                This concludes the official documentation.
+            </p>
+
+            <a href="#room-could-talk">
+    continue to our room's memories →
+</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     END OF SECTION 3
+========================= -->
+<!-- =========================================================
+     SECTION 4 — IF OUR ROOM COULD TALK
+     Paste this entire block directly after Section 3
+========================================================= -->
+
+<section class="room-could-talk" id="room-could-talk">
+
+    <style>
+
+        /* =========================
+           SECTION 4 — ROOM COULD TALK
+        ========================= */
+
+        .room-could-talk {
+            position: relative;
+            min-height: 100vh;
+            padding: 130px 20px 150px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(255, 235, 226, 0.75),
+                    transparent 45%
+                ),
+                #f4eee8;
+
+            overflow: hidden;
+        }
+
+
+        /* Soft background glow */
+
+        .room-could-talk::before {
+            content: "";
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            left: 50%;
+            top: 25%;
+
+            transform: translateX(-50%);
+
+            background: rgba(215, 185, 178, 0.18);
+
+            border-radius: 50%;
+
+            filter: blur(70px);
+
+            pointer-events: none;
+        }
+
+
+        /* Tiny floating stars */
+
+        .room-star {
+            position: absolute;
+
+            font-family: "Caveat", cursive;
+
+            color: #a98991;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+
+            animation: roomFloat 5s ease-in-out infinite;
+        }
+
+        .room-star.one {
+            top: 14%;
+            left: 12%;
+            font-size: 24px;
+        }
+
+        .room-star.two {
+            top: 30%;
+            right: 13%;
+            font-size: 18px;
+            animation-delay: 1s;
+        }
+
+        .room-star.three {
+            top: 58%;
+            left: 8%;
+            font-size: 17px;
+            animation-delay: 2s;
+        }
+
+        .room-star.four {
+            top: 68%;
+            right: 10%;
+            font-size: 25px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes roomFloat {
+
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(5deg);
+            }
+
+        }
+
+
+        /* Main container */
+
+        .room-talk-inner {
+            position: relative;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        /* Intro */
+
+        .room-talk-intro {
+            margin-bottom: 70px;
+        }
+
+
+        .room-talk-eyebrow {
+            margin: 0 0 12px;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            color: #9c7c83;
+        }
+
+
+        .room-talk-title {
+            margin: 0;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(45px, 7vw, 78px);
+
+            line-height: 0.95;
+
+            letter-spacing: -2px;
+
+            color: #493d3b;
+        }
+
+
+        .room-talk-title span {
+            color: #a27680;
+            font-style: italic;
+        }
+
+
+        .room-talk-subtitle {
+            max-width: 520px;
+
+            margin: 25px auto 0;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 24px;
+
+            line-height: 1.3;
+
+            color: #806c67;
+        }
+
+
+        /* =========================
+           ROOM ILLUSTRATION
+        ========================= */
+
+        .memory-room {
+            position: relative;
+
+            width: min(700px, 90vw);
+
+            height: 370px;
+
+            margin: 0 auto 90px;
+
+            background: #eee2dc;
+
+            border: 1px solid #d1bbb4;
+
+            box-shadow:
+                0 20px 50px rgba(100, 70, 60, 0.12);
+
+            overflow: hidden;
+        }
+
+
+        /* wall */
+
+        .memory-room::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 0 70%,
+                    rgba(130, 100, 90, 0.08) 70% 71%,
+                    transparent 71%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* Window */
+
+        .room-window {
+            position: absolute;
+
+            top: 48px;
+            left: 55px;
+
+            width: 130px;
+            height: 150px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent 48%,
+                    #c6a9a2 48% 52%,
+                    transparent 52%
+                ),
+                linear-gradient(
+                    0deg,
+                    transparent 48%,
+                    #c6a9a2 48% 52%,
+                    transparent 52%
+                ),
+                #dce1e0;
+
+            border: 8px solid #faf4ef;
+
+            box-shadow:
+                inset 0 0 0 1px #b99f98;
+        }
+
+
+        /* Curtains */
+
+        .room-window::before,
+        .room-window::after {
+            content: "";
+
+            position: absolute;
+
+            top: -8px;
+
+            width: 28px;
+            height: 150px;
+
+            background: #d4b4b7;
+
+            opacity: 0.75;
+        }
+
+        .room-window::before {
+            left: -30px;
+            transform: skewY(4deg);
+        }
+
+        .room-window::after {
+            right: -30px;
+            transform: skewY(-4deg);
+        }
+
+
+        /* Bed */
+
+        .room-bed {
+            position: absolute;
+
+            left: 205px;
+            bottom: 55px;
+
+            width: 300px;
+            height: 115px;
+
+            background: #d6c0bc;
+
+            border-radius: 8px 8px 0 0;
+
+            border: 1px solid #bda39d;
+        }
+
+
+        .room-bed::before {
+            content: "";
+
+            position: absolute;
+
+            left: 15px;
+            top: 12px;
+
+            width: 75px;
+            height: 45px;
+
+            background: #f8eee8;
+
+            border-radius: 8px;
+
+            box-shadow:
+                95px 0 0 #f3e2df;
+        }
+
+
+        /* Blanket */
+
+        .room-bed::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 65px;
+
+            background: #c8a9ae;
+
+            border-radius: 0 0 8px 8px;
+        }
+
+
+        /* Tiny pillows */
+
+        .room-pillow {
+            position: absolute;
+
+            width: 45px;
+            height: 28px;
+
+            border-radius: 6px;
+
+            background: #fff8f3;
+
+            z-index: 2;
+        }
+
+        .room-pillow.one {
+            left: 225px;
+            top: 205px;
+        }
+
+        .room-pillow.two {
+            left: 280px;
+            top: 205px;
+        }
+
+
+        /* Floor */
+
+        .room-floor {
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 55px;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #d4bbb3 0 60px,
+                    #cfb4ad 60px 62px
+                );
+        }
+
+
+        /* Little objects */
+
+        .room-lamp {
+            position: absolute;
+
+            right: 80px;
+            bottom: 105px;
+
+            width: 45px;
+            height: 65px;
+        }
+
+        .room-lamp::before {
+            content: "♡";
+
+            position: absolute;
+
+            top: 0;
+            left: 5px;
+
+            width: 35px;
+            height: 30px;
+
+            background: #e8c9bd;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50% 50% 8px 8px;
+
+            color: #9f747d;
+
+            font-size: 15px;
+        }
+
+        .room-lamp::after {
+            content: "";
+
+            position: absolute;
+
+            left: 20px;
+            bottom: 0;
+
+            width: 5px;
+            height: 38px;
+
+            background: #9b817b;
+        }
+
+
+        /* Memory quote on room */
+
+        .room-memory-note {
+            position: absolute;
+
+            right: 38px;
+            top: 45px;
+
+            width: 155px;
+
+            padding: 15px;
+
+            background: #fff8e8;
+
+            transform: rotate(4deg);
+
+            box-shadow:
+                2px 5px 10px rgba(80, 50, 40, 0.12);
+
+            font-family: "Caveat", cursive;
+
+            font-size: 18px;
+
+            line-height: 1.15;
+
+            color: #725d58;
+        }
+
+
+        .room-memory-note::after {
+            content: "";
+
+            position: absolute;
+
+            width: 42px;
+            height: 10px;
+
+            top: -6px;
+            left: 50%;
+
+            transform: translateX(-50%) rotate(-2deg);
+
+            background: rgba(213, 177, 169, 0.65);
+        }
+
+
+        /* =========================
+           MEMORY CLOUDS
+        ========================= */
+
+        .memory-clouds {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+        }
+
+
+        .memory-bubble {
+            padding: 14px 20px;
+
+            background: rgba(255, 250, 246, 0.8);
+
+            border: 1px solid #d8c4bd;
+
+            border-radius: 50px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 20px;
+
+            color: #675550;
+
+            box-shadow:
+                0 5px 15px rgba(100, 70, 60, 0.06);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .memory-bubble:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+
+        .memory-bubble:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+
+        .memory-bubble:hover {
+            transform: translateY(-5px) rotate(0deg);
+
+            background: #fff7f1;
+        }
+
+
+        /* =========================
+           ROOM'S VOICE
+        ========================= */
+
+        .room-voice {
+            max-width: 700px;
+
+            margin: 100px auto 0;
+
+            padding: 55px 35px;
+
+            position: relative;
+        }
+
+
+        .room-voice::before {
+            content: "“";
+
+            position: absolute;
+
+            top: -35px;
+            left: 0;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 110px;
+
+            color: #d4b5b1;
+
+            opacity: 0.7;
+        }
+
+
+        .room-voice p {
+            margin: 0;
+
+            font-family: "Caveat", cursive;
+
+            font-size: clamp(27px, 4vw, 38px);
+
+            line-height: 1.25;
+
+            color: #63504c;
+        }
+
+
+        .room-voice .voice-highlight {
+            display: block;
+
+            margin-top: 18px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(25px, 4vw, 36px);
+
+            font-weight: 600;
+
+            color: #9b7079;
+        }
+
+
+        /* Bottom line */
+
+        .room-final {
+            margin-top: 65px;
+
+            padding-top: 30px;
+
+            border-top: 1px dashed #cdb7b0;
+        }
+
+
+        .room-final p {
+            margin: 0;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: #927b74;
+
+            text-transform: uppercase;
+        }
+
+
+        .room-final strong {
+            display: block;
+
+            margin-top: 12px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            color: #493d3b;
+        }
+
+
+        /* Next button */
+
+        .room-next {
+            margin-top: 55px;
+        }
+
+
+        .room-next a {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border: 1px solid #9e737c;
+
+            color: #8c626b;
+
+            text-decoration: none;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .room-next a:hover {
+            background: #9e737c;
+
+            color: #fffaf3;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .room-could-talk {
+                padding: 90px 15px 110px;
+            }
+
+            .room-talk-title {
+                font-size: 48px;
+            }
+
+            .room-talk-subtitle {
+                font-size: 21px;
+            }
+
+            .memory-room {
+                height: 300px;
+
+                width: 95vw;
+            }
+
+            .room-window {
+                left: 25px;
+                top: 35px;
+
+                width: 90px;
+                height: 110px;
+            }
+
+            .room-bed {
+                left: 80px;
+                bottom: 50px;
+
+                width: 245px;
+                height: 90px;
+            }
+
+            .room-pillow.one {
+                left: 100px;
+                top: 182px;
+            }
+
+            .room-pillow.two {
+                left: 150px;
+                top: 182px;
+            }
+
+            .room-memory-note {
+                right: 15px;
+                top: 25px;
+
+                width: 125px;
+
+                font-size: 15px;
+            }
+
+            .room-lamp {
+                right: 25px;
+                bottom: 95px;
+            }
+
+            .memory-bubble {
+                font-size: 18px;
+
+                padding: 11px 15px;
+            }
+
+            .room-voice {
+                padding: 45px 15px;
+            }
+
+            .room-voice::before {
+                font-size: 80px;
+            }
+
+            .room-voice p {
+                font-size: 27px;
+            }
+
+            .room-voice .voice-highlight {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- Floating decorations -->
+
+    <span class="room-star one">✦</span>
+    <span class="room-star two">♡</span>
+    <span class="room-star three">✧</span>
+    <span class="room-star four">✦</span>
+
+
+    <div class="room-talk-inner">
+
+
+        <!-- INTRO -->
+
+        <div class="room-talk-intro">
+
+            <p class="room-talk-eyebrow">
+                IF THESE WALLS COULD SPEAK...
+            </p>
+
+            <h2 class="room-talk-title">
+                If Our Room<br>
+                <span>Could Talk...</span>
+            </h2>
+
+            <p class="room-talk-subtitle">
+                I wonder how many stories these four walls
+                would tell if they could remember everything.
+            </p>
+
+        </div>
+
+
+        <!-- ROOM ILLUSTRATION -->
+
+        <div class="memory-room">
+
+            <div class="room-window"></div>
+
+            <div class="room-memory-note">
+                so many stories<br>
+                happened here... ♡
+            </div>
+
+            <div class="room-bed"></div>
+
+            <div class="room-pillow one"></div>
+            <div class="room-pillow two"></div>
+
+            <div class="room-lamp"></div>
+
+            <div class="room-floor"></div>
+
+        </div>
+
+
+        <!-- MEMORY BUBBLES -->
+
+        <div class="memory-clouds">
+
+            <div class="memory-bubble">
+                🎂 birthday celebrations
+            </div>
+
+            <div class="memory-bubble">
+                🎁 surprise moments
+            </div>
+
+            <div class="memory-bubble">
+                😂 uncontrollable laughter
+            </div>
+
+            <div class="memory-bubble">
+                🥹 tears & difficult days
+            </div>
+
+            <div class="memory-bubble">
+                📚 late-night exam prep
+            </div>
+
+            <div class="memory-bubble">
+                🌙 entire days in a dark room
+            </div>
+
+            <div class="memory-bubble">
+                🎬 endless series marathons
+            </div>
+
+            <div class="memory-bubble">
+                💃 random dances
+            </div>
+
+            <div class="memory-bubble">
+                🎤 karaoke nights
+            </div>
+
+            <div class="memory-bubble">
+                🌙 endless gossip
+            </div>
+
+            <div class="memory-bubble">
+                💌 love stories
+            </div>
+
+            <div class="memory-bubble">
+                😂 roasting sessions
+            </div>
+
+            <div class="memory-bubble">
+                💄 getting ready moments
+            </div>
+
+            <div class="memory-bubble">
+                🍽️ dinners together
+            </div>
+
+            <div class="memory-bubble">
+                🤍 being there for each other
+            </div>
+
+            <div class="memory-bubble">
+                ✨ and so much more...
+            </div>
+
+        </div>
+
+
+        <!-- ROOM'S VOICE -->
+
+        <div class="room-voice">
+
+            <p>
+                <p>
+    I watched you grow together — from three girls who barely knew each
+    other to three people who knew when the other needed a laugh, a
+    conversation, a hug, or simply someone to sit beside. I witnessed
+    your happiest moments, your hardest nights, your endless
+    conversations, your quiet tears, your loudest laughter, and all
+    the little moments in between that neither of you realised would
+    one day mean so much.
+</p>
+            </p>
+
+            <span class="voice-highlight">
+                I watched you become home to each other.
+            </span>
+
+        </div>
+
+
+        <!-- FINAL EMOTIONAL LINE -->
+
+        <div class="room-final">
+
+            <p>
+                FOUR YEARS. ONE ROOM. A THOUSAND LITTLE STORIES.
+            </p>
+
+            <strong>
+                I may have been just a room...
+                but for four years, I was home. ♡
+            </strong>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <div class="room-next">
+
+    <p>
+        and somehow... there are still so many memories left to tell. ♡
+    </p>
+
+</div>
+
+
+    </div>
+
+</section>
+
+<!-- =========================
+     END OF SECTION 4
+========================= -->
+<!-- =========================================================
+     SECTION 5 — ONE LAST THING
+========================================================= -->
+
+<section class="one-last-thing" id="one-last-thing">
+
+    <style>
+        /* ================================
+           SECTION 5 — MAIN
+        ================================= */
+
+        .one-last-thing {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            padding: 110px 20px 120px;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(214, 174, 190, 0.18), transparent 25%),
+                radial-gradient(circle at 85% 75%, rgba(184, 174, 205, 0.16), transparent 28%),
+                #f8f1e9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .one-last-thing::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.28;
+            pointer-events: none;
+            background-image:
+                radial-gradient(#9b7f72 0.6px, transparent 0.6px);
+            background-size: 18px 18px;
+        }
+
+        /* ================================
+           INTRO
+        ================================= */
+
+        .final-intro {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 65px;
+        }
+
+        .final-small {
+            font-family: "Caveat", cursive;
+            font-size: 1.45rem;
+            color: #9a6d79;
+            margin-bottom: 5px;
+        }
+
+        .final-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3rem, 7vw, 5.3rem);
+            line-height: 1;
+            color: #493a3b;
+            margin: 0 0 22px;
+        }
+
+        .final-title span {
+            color: #9a6572;
+            font-style: italic;
+        }
+
+        .final-subtitle {
+            font-family: "DM Sans", sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #76686a;
+            max-width: 560px;
+            margin: auto;
+        }
+
+        /* ================================
+           DECORATIVE DOODLES
+        ================================= */
+
+        .final-doodle {
+            position: absolute;
+            z-index: 1;
+            font-family: "Caveat", cursive;
+            color: #b48791;
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        .doodle-heart-1 {
+            top: 13%;
+            left: 8%;
+            font-size: 2rem;
+            transform: rotate(-18deg);
+        }
+
+        .doodle-heart-2 {
+            top: 24%;
+            right: 9%;
+            font-size: 1.7rem;
+            transform: rotate(15deg);
+        }
+
+        .doodle-star-1 {
+            bottom: 15%;
+            left: 11%;
+            font-size: 1.7rem;
+            transform: rotate(-12deg);
+        }
+
+        .doodle-star-2 {
+            bottom: 10%;
+            right: 13%;
+            font-size: 2rem;
+            transform: rotate(12deg);
+        }
+
+        /* ================================
+           ENVELOPE AREA
+        ================================= */
+
+        .envelope-stage {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope {
+            position: relative;
+            width: min(420px, 88vw);
+            height: 275px;
+            cursor: default;
+            filter: drop-shadow(0 20px 25px rgba(91, 65, 67, 0.16));
+            transition: transform 0.4s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Envelope body */
+
+        .envelope-body {
+            position: absolute;
+            inset: 0;
+            background: #e9c9c5;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(116, 76, 78, 0.15);
+        }
+
+        .envelope-body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(145deg, transparent 49.5%, rgba(126, 82, 85, 0.15) 50%, transparent 50.5%),
+                linear-gradient(215deg, transparent 49.5%, rgba(126, 82, 85, 0.12) 50%, transparent 50.5%);
+        }
+
+        /* Letter peeking out */
+
+        .letter-preview {
+            position: absolute;
+            width: 76%;
+            height: 220px;
+            left: 12%;
+            bottom: 8px;
+            background: #fffaf3;
+            border-radius: 2px;
+            box-shadow: 0 5px 12px rgba(80, 55, 55, 0.12);
+            z-index: 1;
+            transition: transform 1s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .letter-preview::before {
+            content: "for my favourite person ♡";
+            position: absolute;
+            top: 45px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: "Caveat", cursive;
+            color: #a06d78;
+            font-size: 1.45rem;
+        }
+
+        .letter-preview::after {
+            content: "♡";
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #bd8791;
+        }
+
+        /* Envelope flap */
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 58%;
+            z-index: 5;
+            transform-origin: top center;
+            transition:
+                transform 1s cubic-bezier(.22,.61,.36,1),
+                z-index 0s linear 0.5s;
+        }
+
+        .envelope-flap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #dfb9b8;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* Heart seal */
+
+        .heart-seal {
+            position: absolute;
+            z-index: 10;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 74px;
+            height: 74px;
+            border: none;
+            border-radius: 50%;
+            background: #a96775;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow:
+                0 8px 18px rgba(117, 69, 77, 0.28),
+                0 0 0 8px rgba(169, 103, 117, 0.10);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                opacity 0.4s ease;
+            animation: sealPulse 2.2s infinite;
+        }
+
+        .heart-seal:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow:
+                0 10px 22px rgba(117, 69, 77, 0.32),
+                0 0 0 12px rgba(169, 103, 117, 0.10);
+        }
+
+        .heart-seal:active {
+            transform: translate(-50%, -50%) scale(0.96);
+        }
+
+        @keyframes sealPulse {
+            0%, 100% {
+                box-shadow:
+                    0 8px 18px rgba(117, 69, 77, 0.28),
+                    0 0 0 8px rgba(169, 103, 117, 0.10);
+            }
+
+            50% {
+                box-shadow:
+                    0 8px 18px rgba(117, 69, 77, 0.28),
+                    0 0 0 15px rgba(169, 103, 117, 0.04);
+            }
+        }
+
+        .tap-message {
+            margin-top: 30px;
+            font-family: "Caveat", cursive;
+            font-size: 1.45rem;
+            color: #89656b;
+            animation: gentleFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* ================================
+           OPENED ENVELOPE
+        ================================= */
+
+        .envelope.opened .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.opened .letter-preview {
+            transform: translateY(-35px);
+        }
+
+        .envelope.opened .heart-seal {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .envelope.opened {
+            transform: translateY(0);
+        }
+
+        /* ================================
+           FLOATING HEARTS
+        ================================= */
+
+        .floating-heart {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            font-size: 1.3rem;
+            color: #b87582;
+            animation: floatHeart 1.8s ease-out forwards;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0.7) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translateY(-180px)
+                    translateX(var(--heart-x))
+                    scale(1.4)
+                    rotate(25deg);
+            }
+        }
+
+        /* =====================================================
+           FULL LETTER BACKDROP
+        ====================================================== */
+
+        .letter-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(45, 32, 34, 0.72);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition:
+                opacity 0.45s ease,
+                visibility 0.45s ease;
+        }
+
+        .letter-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        /* ================================
+           LETTER MODAL
+        ================================= */
+
+        .letter-modal {
+            position: relative;
+            width: min(850px, 94vw);
+            max-height: 91vh;
+            transform: translateY(35px) scale(0.94);
+            transition: transform 0.55s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .letter-backdrop.active .letter-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        /* Close button */
+
+        .close-letter {
+            position: absolute;
+            z-index: 20;
+            top: -18px;
+            right: -15px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: #fff8f1;
+            color: #76565a;
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .close-letter:hover {
+            transform: rotate(90deg) scale(1.08);
+            background: #f3d8d5;
+        }
+
+        /* ================================
+           LETTER PAPER
+        ================================= */
+
+        .final-letter-paper {
+            position: relative;
+            max-height: 91vh;
+            overflow-y: auto;
+            padding: 65px clamp(28px, 7vw, 78px) 75px;
+            background:
+                linear-gradient(rgba(255, 250, 243, 0.97), rgba(255, 250, 243, 0.97)),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 31px,
+                    rgba(158, 125, 117, 0.08) 32px
+                );
+            border-radius: 5px;
+            box-shadow:
+                0 25px 70px rgba(30, 20, 20, 0.30),
+                0 3px 10px rgba(30, 20, 20, 0.12);
+            scrollbar-width: thin;
+            scrollbar-color: #c9a2a0 transparent;
+        }
+
+        .final-letter-paper::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .final-letter-paper::-webkit-scrollbar-thumb {
+            background: #c9a2a0;
+            border-radius: 10px;
+        }
+
+        /* Paper tape */
+
+        .paper-tape {
+            position: absolute;
+            width: 115px;
+            height: 28px;
+            background: rgba(218, 190, 166, 0.65);
+            top: 18px;
+            transform: rotate(-3deg);
+            opacity: 0.8;
+        }
+
+        .paper-tape.left {
+            left: 35px;
+        }
+
+        .paper-tape.right {
+            right: 35px;
+            transform: rotate(4deg);
+        }
+
+        /* Paper doodles */
+
+        .paper-doodle {
+            position: absolute;
+            color: #c28c96;
+            font-size: 1.3rem;
+            opacity: 0.55;
+        }
+
+        .paper-doodle.one {
+            top: 90px;
+            left: 22px;
+            transform: rotate(-15deg);
+        }
+
+        .paper-doodle.two {
+            top: 145px;
+            right: 25px;
+            transform: rotate(15deg);
+        }
+
+        .paper-doodle.three {
+            bottom: 80px;
+            left: 25px;
+            transform: rotate(10deg);
+        }
+
+        .paper-doodle.four {
+            bottom: 40px;
+            right: 30px;
+            transform: rotate(-12deg);
+        }
+
+        /* ================================
+           LETTER CONTENT
+        ================================= */
+
+        .letter-date {
+            text-align: right;
+            font-family: "Caveat", cursive;
+            color: #98777b;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .letter-heading {
+            font-family: "Playfair Display", serif;
+            color: #4c3a3c;
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            line-height: 1.2;
+            margin: 0 0 30px;
+        }
+
+        .letter-heading span {
+            color: #a66572;
+        }
+
+        .letter-content {
+            font-family: "Caveat", cursive;
+            font-size: clamp(1.25rem, 2.3vw, 1.5rem);
+            line-height: 1.72;
+            color: #594b4d;
+        }
+
+        .letter-content p {
+            margin: 0 0 22px;
+        }
+
+        .letter-content .highlight {
+            color: #9d5f6d;
+            font-weight: 600;
+        }
+
+        .letter-content .quote {
+            position: relative;
+            margin: 30px 0;
+            padding: 18px 24px;
+            background: rgba(232, 205, 204, 0.32);
+            border-left: 3px solid #b97d87;
+            border-radius: 0 8px 8px 0;
+            color: #805a61;
+        }
+
+        .letter-content .center-line {
+            text-align: center;
+            color: #9c6872;
+            font-size: 1.65rem;
+            margin: 32px 0;
+        }
+
+        .letter-signoff {
+            margin-top: 35px;
+            text-align: right;
+            font-family: "Caveat", cursive;
+            font-size: 1.65rem;
+            color: #74555a;
+        }
+
+        .letter-signoff strong {
+            display: block;
+            font-size: 2rem;
+            color: #9b6370;
+            margin-top: 5px;
+        }
+
+        /* ================================
+           AFTER LETTER
+        ================================= */
+
+        .after-letter {
+            text-align: center;
+            margin-top: 45px;
+            padding-top: 35px;
+            border-top: 1px dashed rgba(137, 103, 107, 0.3);
+        }
+
+        .after-letter p {
+            margin: 5px 0;
+            font-family: "Caveat", cursive;
+            color: #8c666b;
+            font-size: 1.45rem;
+        }
+
+        .after-letter p:last-child {
+            color: #a46672;
+            font-size: 1.65rem;
+        }
+
+        /* ================================
+           MUSIC INDICATOR
+        ================================= */
+
+        .music-note {
+            position: fixed;
+            z-index: 1100;
+            bottom: 22px;
+            right: 22px;
+            background: rgba(255, 248, 242, 0.95);
+            border: 1px solid rgba(145, 100, 108, 0.15);
+            border-radius: 30px;
+            padding: 9px 17px;
+            font-family: "Caveat", cursive;
+            color: #815c62;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 18px rgba(50, 35, 35, 0.12);
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .music-note.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .music-bars {
+            display: inline-flex;
+            gap: 2px;
+            align-items: center;
+            margin-right: 7px;
+        }
+
+        .music-bars span {
+            width: 3px;
+            height: 12px;
+            background: #a76b77;
+            border-radius: 5px;
+            animation: musicBar 0.8s ease-in-out infinite alternate;
+        }
+
+        .music-bars span:nth-child(2) {
+            animation-delay: 0.2s;
+            height: 17px;
+        }
+
+        .music-bars span:nth-child(3) {
+            animation-delay: 0.4s;
+            height: 10px;
+        }
+
+        @keyframes musicBar {
+            from {
+                transform: scaleY(0.45);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .one-last-thing {
+                padding-top: 90px;
+                padding-bottom: 90px;
+            }
+
+            .final-intro {
+                margin-bottom: 48px;
+            }
+
+            .final-title {
+                font-size: 3rem;
+            }
+
+            .final-subtitle {
+                font-size: 0.92rem;
+                line-height: 1.7;
+            }
+
+            .envelope {
+                width: 88vw;
+                height: 235px;
+            }
+
+            .letter-preview {
+                height: 190px;
+            }
+
+            .heart-seal {
+                width: 65px;
+                height: 65px;
+                font-size: 1.7rem;
+            }
+
+            .letter-backdrop {
+                padding: 15px;
+            }
+
+            .letter-modal {
+                width: 96vw;
+                max-height: 92vh;
+            }
+
+            .final-letter-paper {
+                max-height: 92vh;
+                padding: 55px 24px 55px;
+            }
+
+            .close-letter {
+                width: 40px;
+                height: 40px;
+                top: -10px;
+                right: -5px;
+                font-size: 1.4rem;
+            }
+
+            .paper-tape {
+                width: 85px;
+                height: 22px;
+            }
+
+            .paper-tape.left {
+                left: 20px;
+            }
+
+            .paper-tape.right {
+                right: 20px;
+            }
+
+            .letter-content {
+                font-size: 1.25rem;
+                line-height: 1.65;
+            }
+
+            .letter-content .quote {
+                padding: 15px 17px;
+                margin: 25px 0;
+            }
+
+            .letter-content .center-line {
+                font-size: 1.45rem;
+            }
+
+            .letter-signoff {
+                font-size: 1.45rem;
+            }
+
+            .letter-signoff strong {
+                font-size: 1.8rem;
+            }
+
+            .music-note {
+                bottom: 12px;
+                right: 12px;
+                font-size: 1rem;
+            }
+
+            .doodle-heart-1,
+            .doodle-heart-2,
+            .doodle-star-1,
+            .doodle-star-2 {
+                opacity: 0.35;
+            }
+        }
+    </style>
+
+
+    <!-- ================================
+         DECORATIVE DOODLES
+    ================================= -->
+
+    <div class="final-doodle doodle-heart-1">♡</div>
+    <div class="final-doodle doodle-heart-2">♡</div>
+    <div class="final-doodle doodle-star-1">✦</div>
+    <div class="final-doodle doodle-star-2">✧</div>
+
+
+    <!-- ================================
+         INTRO
+    ================================= -->
+
+    <div class="final-intro">
+
+        <div class="final-small">
+            before you go... ♡
+        </div>
+
+        <h2 class="final-title">
+            One Last <span>Thing.</span>
+        </h2>
+
+        <p class="final-subtitle">
+            There are some things I couldn't fit into all the memories above.
+            So I wrote them down instead.
+        </p>
+
+    </div>
+
+
+    <!-- ================================
+         ENVELOPE
+    ================================= -->
+
+    <div class="envelope-stage">
+
+        <div class="envelope" id="finalEnvelope">
+
+            <!-- Letter inside envelope -->
+            <div class="letter-preview"></div>
+
+            <!-- Envelope body -->
+            <div class="envelope-body"></div>
+
+            <!-- Envelope flap -->
+            <div class="envelope-flap"></div>
+
+            <!-- Heart seal -->
+            <button
+                class="heart-seal"
+                id="openLetter"
+                aria-label="Open my letter"
+            >
+                ♡
+            </button>
+
+        </div>
+
+        <div class="tap-message">
+            tap the heart... I have something to tell you ♡
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FULL LETTER MODAL
+    ====================================================== -->
+
+    <div
+        class="letter-backdrop"
+        id="letterBackdrop"
+        aria-hidden="true"
+    >
+
+        <div class="letter-modal">
+
+            <!-- Close -->
+            <button
+                class="close-letter"
+                id="closeLetter"
+                aria-label="Close letter"
+            >
+                ×
+            </button>
+
+
+            <!-- Letter Paper -->
+            <div class="final-letter-paper">
+
+                <!-- Tape -->
+                <div class="paper-tape left"></div>
+                <div class="paper-tape right"></div>
+
+                <!-- Doodles -->
+                <div class="paper-doodle one">♡</div>
+                <div class="paper-doodle two">✦</div>
+                <div class="paper-doodle three">♡</div>
+                <div class="paper-doodle four">✧</div>
+
+
+                <!-- Date -->
+                <div class="letter-date">
+                    somewhere between Room 103 & forever ♡
+                </div>
+
+
+                <!-- Heading -->
+                <h3 class="letter-heading">
+                    To my <span>favourite person</span> in Room 103, ❤️
+                </h3>
+
+
+                <!-- ================================
+                     THE LETTER
+                ================================= -->
+
+                <div class="letter-content">
+
+                    <p>
+                        I don't really know how to write this without getting
+                        emotional. And honestly, I don't even know where to
+                        start.
+                    </p>
+
+                    <p>
+                        How am I supposed to fit <span class="highlight">
+                        four years of us</span> into one little letter?
+                        Four years of conversations, chaos, laughter,
+                        crying, gossip, roasts, movies, getting ready,
+                        random plans and all those tiny moments that somehow
+                        became my favourite memories.
+                    </p>
+
+                    <p>
+                        Because you weren't just my roommate.
+                        You slowly became the person I automatically wanted
+                        to tell everything to.
+                    </p>
+
+                    <div class="quote">
+                        
+                        "Dhiviii... inaiku enna nadathuchu theriyumaaa?"
+                    </div>
+
+                    <p>
+                        And somehow, those became part of our everyday life.
+                        The kind of conversations that started with one tiny
+                        thing and somehow lasted forever.
+                    </p>
+
+                    <p>
+                        You have genuinely been my
+                        <span class="highlight">all-time chatting partner,
+                        gossip partner, roasting department and emergency
+                        advice centre.</span>
+                    </p>
+
+                    <p>
+                        And your advice?
+                        Annoyingly, most of the time you were right. 😂
+                    </p>
+
+                    <p>
+                        There were so many times when I came to you with
+                        something confusing, something stupid, something
+                        exciting, or something I just needed to talk about.
+                        And you were there.
+                    </p>
+
+                    <p>
+                        Sometimes you gave advice.
+                        Sometimes you just listened.
+                        Sometimes you roasted me.
+                        Sometimes you made me laugh when I didn't even feel
+                        like laughing.
+                    </p>
+
+                    <p>
+                        But you were there.
+                        <span class="highlight">And that mattered more than
+                        you probably realise.</span>
+                    </p>
+
+
+                    <div class="center-line">
+                        Not just the big memories.<br>
+                        But you being there. ♡
+                    </div>
+
+
+                    <p>
+                        When I think about these four years, I don't just
+                        remember one particular day.
+                    </p>
+
+                    <p>
+                        I remember our first day.
+                        Our first conversations.
+                        Our Room 103 outings.
+                        Late-night gossip.
+                        Movie nights.
+                        Getting ready together.
+                        Saree disasters. 😂
+                        Random dances.
+                        Karaoke nights.
+                        Exam panic.
+                        Entire days spent in a dark room.
+                        Eating together.
+                        Talking about love stories.
+                        Roasting each other.
+                        Laughing until we couldn't breathe.
+                        Crying when things got difficult.
+                    </p>
+
+                    <p>
+                        And all those completely ordinary days that didn't
+                        feel special at the time.
+                    </p>
+
+                    <p>
+                        I think that's what makes this so hard.
+                    </p>
+
+                    <p>
+                        You don't realise you're
+                        <span class="highlight">living a memory while you're
+                        living it.</span>
+                    </p>
+
+                    <p>
+                        You only realise later that the random Tuesday,
+                        the late-night conversation, the silly gossip,
+                        the movie you almost didn't watch, the dinner we
+                        shared, the stupid joke we kept repeating...
+                        was actually one of the best parts of your life.
+                    </p>
+
+                    <p>
+                        And somehow, you made these four years feel like
+                        home.
+                    </p>
+
+
+                    <div class="quote">
+                        You came into my life as a roommate.<br>
+                        And somewhere along the way, you became family. ❤️
+                    </div>
+
+
+                    <p>
+                        I know things are going to change now.
+                    </p>
+
+                    <p>
+                        The room will be different.
+                        The routine will be different.
+                        The random conversations won't happen in quite the
+                        same way anymore.
+                    </p>
+
+                    <p>
+                        There won't be someone right there for me to turn to
+                        and say,
+                    </p>
+
+                    <div class="center-line">
+                        "Wait... listen to this." 😂
+                    </div>
+
+                    <p>
+                        And honestly?
+                        <span class="highlight">I'm going to miss that so
+                        badly.</span>
+                    </p>
+
+                    <p>
+                        I'm going to miss you more than this letter can say.
+                        Probably more than I even know how to say right now.
+                    </p>
+
+
+                    <p>
+                        But there is one thing I don't want to change.
+                    </p>
+
+                    <p>
+                        Even if life takes us in different directions,
+                        even if our days become busy, even if we don't get to
+                        talk every single day like we do now...
+                    </p>
+
+                    <p>
+                        I still want to know what happened in your day.
+                        I still want the random updates.
+                        I still want the silly stories.
+                        I still want the gossip.
+                        I still want the "you won't believe what happened"
+                        calls.
+                    </p>
+
+                    <p>
+                        I don't want us to become those people who only say,
+                        <span class="highlight">"Remember when?"</span>
+                    </p>
+
+                    <p>
+                        I want us to still be the people who say,
+                    </p>
+
+                    <div class="center-line">
+                        "Guess what happened today?" 🥹❤️
+                    </div>
+
+                    <p>
+                        Because some things don't have to end just because
+                        life changes.
+                    </p>
+
+                    <p>
+                        And you should know this:
+                    </p>
+
+                    <p>
+                        <span class="highlight">
+                            I will still choose you.
+                        </span>
+                    </p>
+
+                    <p>
+                        Just like you became my person without either of us
+                        planning it, I hope you always know that you will
+                        have me.
+                    </p>
+
+                    <p>
+                        Through the exciting days.
+                        Through the messy ones.
+                        Through new beginnings.
+                        Through bad decisions that I will probably have to
+                        hear about. 😂
+                        Through everything.
+                    </p>
+
+
+                    <div class="center-line">
+                        You don't have to be in Room 103<br>
+                        for me to be your roommate anymore. ♡
+                    </div>
+
+
+                    <p>
+                        You will always be my
+                        <span class="highlight">
+                            first roommate.
+                        </span>
+                    </p>
+
+                    <p>
+                        My favourite gossip partner.
+                    </p>
+
+                    <p>
+                        The person I want to tell everything to.
+                    </p>
+
+                    <p>
+                        My bestie.
+                    </p>
+
+                    <p>
+                        My sister.
+                    </p>
+
+                    <p>
+                        My person.
+                    </p>
+
+
+                    <p>
+                        I hope this new chapter brings you everything you
+                        deserve.
+                        I hope you meet amazing people, make beautiful
+                        memories, grow into everything you dream of becoming,
+                        and always remember how loved you are.
+                    </p>
+
+                    <p>
+                        And when things get overwhelming, remember that
+                        somewhere there is still one girl from Room 103
+                        who will happily listen to every tiny detail of
+                        your day.
+                    </p>
+
+                    <p>
+                        So please...
+                        <span class="highlight">
+                            don't forget your Room 103 person.
+                        </span>
+                    </p>
+
+
+                    <div class="quote">
+                        To that room.<br>
+                        To those late nights.<br>
+                        To those conversations.<br>
+                        To those laughs.<br>
+                        To all the chaos.<br>
+                        And most importantly... to you. ❤️
+                    </div>
+
+
+                    <p>
+                        Thank you for being there.
+                    </p>
+
+                    <p>
+                        Thank you for listening to me.
+                        For putting up with me.
+                        For giving me advice.
+                        For gossiping with me.
+                        For laughing with me.
+                        For roasting me.
+                        For being my safe place.
+                    </p>
+
+                    <p>
+                        Thank you for turning a room into a home.
+                    </p>
+
+                    <p>
+                        And thank you for making these four years something
+                        I will carry with me for the rest of my life.
+                    </p>
+
+
+                    <div class="center-line">
+                        Forever my first roommate.<br>
+                        Forever my favourite person.<br>
+                        Forever my bestie and sister. ❤️
+                    </div>
+
+
+                    <p>
+                        Love you so, so much, thangam. 🫂❤️
+                    </p>
+
+                    <p>
+                        And no matter how much things change...
+                    </p>
+
+                    <p>
+                        some things will always stay the same.
+                    </p>
+
+
+                    <p>
+                        I guess some things will never change.
+                    </p>
+
+
+                    <!-- SIGN OFF -->
+
+                    <div class="letter-signoff">
+                        Forever your Room 103 person,
+                        <strong>Ravee ♡</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- ================================
+                     AFTER LETTER
+                ================================= -->
+
+                <div class="after-letter">
+
+                    <p>
+                        Some friendships are made in a moment.
+                    </p>
+
+                    <p>
+                        Ours was made in a thousand little moments. ♡
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         MUSIC INDICATOR
+    ================================= -->
+
+    <div class="music-note" id="musicNote">
+
+        <span class="music-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        our song is playing... ♡
+
+    </div>
+
+
+    <!-- =====================================================
+         SECTION 5 JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* --------------------------------
+           ELEMENTS
+        -------------------------------- */
+
+        const finalEnvelope = document.getElementById("finalEnvelope");
+        const openLetter = document.getElementById("openLetter");
+        const letterBackdrop = document.getElementById("letterBackdrop");
+        const closeLetter = document.getElementById("closeLetter");
+        const musicNote = document.getElementById("musicNote");
+
+
+        /* --------------------------------
+           SONG
+           
+           IMPORTANT:
+           Put your song here:
+           
+           music/our-song.mp3
+        -------------------------------- */
+
+        const song = new Audio("music/oursong.mp3");
+
+        song.loop = true;
+        song.volume = 0.6;
+
+
+        /* --------------------------------
+           OPEN LETTER
+        -------------------------------- */
+
+        openLetter.addEventListener("click", function () {
+
+            /* Open envelope */
+            finalEnvelope.classList.add("opened");
+
+            /* Create floating hearts */
+            createFloatingHearts();
+
+            /*
+               Small delay so the envelope opening
+               animation begins before the letter appears.
+            */
+            setTimeout(function () {
+
+                letterBackdrop.classList.add("active");
+
+                letterBackdrop.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+                document.body.style.overflow = "hidden";
+
+            }, 650);
+
+
+            /*
+               Start song directly inside the
+               user's click event.
+
+               This is important because browsers
+               block autoplay unless playback is
+               triggered by user interaction.
+            */
+
+            song.currentTime = 0;
+
+            song.play()
+                .then(function () {
+
+                    musicNote.classList.add("active");
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "The browser blocked automatic playback:",
+                        error
+                    );
+
+                });
+
+        });
+
+
+        /* --------------------------------
+           CLOSE LETTER
+        -------------------------------- */
+
+        function closeTheLetter() {
+
+            /*
+               STOP THE MUSIC COMPLETELY
+            */
+
+            song.pause();
+
+            /*
+               Reset the song so that when she opens
+               the letter again, it starts from the beginning.
+            */
+
+            song.currentTime = 0;
+
+            /* Hide music indicator */
+
+            musicNote.classList.remove("active");
+
+
+            /* Close letter */
+
+            letterBackdrop.classList.remove("active");
+
+            letterBackdrop.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+
+
+            /*
+               Wait for closing animation,
+               then close envelope again.
+            */
+
+            setTimeout(function () {
+
+                finalEnvelope.classList.remove("opened");
+
+            }, 450);
+
+        }
+
+
+        /* --------------------------------
+           CLOSE BUTTON
+        -------------------------------- */
+
+        closeLetter.addEventListener(
+            "click",
+            closeTheLetter
+        );
+
+
+        /* --------------------------------
+           CLICK OUTSIDE LETTER
+        -------------------------------- */
+
+        letterBackdrop.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === letterBackdrop) {
+
+                    closeTheLetter();
+
+                }
+
+            }
+        );
+
+
+        /* --------------------------------
+           ESCAPE KEY
+        -------------------------------- */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    letterBackdrop.classList.contains("active")
+                ) {
+
+                    closeTheLetter();
+
+                }
+
+            }
+        );
+
+
+        /* --------------------------------
+           FLOATING HEARTS
+        -------------------------------- */
+
+        function createFloatingHearts() {
+
+            const hearts = [
+                "♡",
+                "♥",
+                "♡",
+                "♡",
+                "♥",
+                "✦",
+                "♡",
+                "♥",
+                "♡",
+                "✧"
+            ];
+
+            for (let i = 0; i < 18; i++) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.classList.add("floating-heart");
+
+                heart.textContent =
+                    hearts[
+                        Math.floor(
+                            Math.random() * hearts.length
+                        )
+                    ];
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.top =
+                    65 + Math.random() * 20 + "vh";
+
+                heart.style.setProperty(
+                    "--heart-x",
+                    (Math.random() * 160 - 80) + "px"
+                );
+
+                heart.style.animationDelay =
+                    Math.random() * 0.5 + "s";
+
+                document.body.appendChild(heart);
+
+
+                setTimeout(function () {
+
+                    heart.remove();
+
+                }, 2400);
+
+            }
+
+        }
+
+    </script>
+
+</section>
+ 
+<!-- =========================================================
+     THE PHOTO WE NEVER TOOK
+========================================================= -->
+
+<section class="photo-never-took" id="photo-never-took">
+
+    <style>
+        /* ================================
+           MAIN SECTION
+        ================================= */
+
+        .photo-never-took {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(202, 169, 181, 0.18),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 75%,
+                    rgba(181, 174, 202, 0.15),
+                    transparent 30%
+                ),
+                #f7f0e8;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 110px 20px 130px;
+        }
+
+        .photo-never-took::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                radial-gradient(
+                    rgba(110, 88, 84, 0.12) 0.6px,
+                    transparent 0.6px
+                );
+
+            background-size: 20px 20px;
+
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+
+        /* ================================
+           INTRO
+        ================================= */
+
+        .photo-intro {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+
+            max-width: 650px;
+
+            margin-bottom: 55px;
+        }
+
+        .photo-eyebrow {
+            font-family: "Caveat", cursive;
+            font-size: 1.45rem;
+            color: #9b6c76;
+
+            margin-bottom: 5px;
+        }
+
+        .photo-title {
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(2.7rem, 7vw, 5rem);
+
+            line-height: 1.05;
+
+            color: #493a3b;
+
+            margin: 0 0 18px;
+        }
+
+        .photo-title span {
+            color: #a56874;
+            font-style: italic;
+        }
+
+        .photo-description {
+            font-family: "DM Sans", sans-serif;
+
+            color: #77696a;
+
+            font-size: 0.96rem;
+
+            line-height: 1.8;
+
+            max-width: 520px;
+
+            margin: auto;
+        }
+
+
+        /* ================================
+           SCRAPBOOK AREA
+        ================================= */
+
+        .photo-memory-stage {
+            position: relative;
+
+            width: min(900px, 95vw);
+
+            min-height: 570px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* ================================
+           POLAROID
+        ================================= */
+
+        .missing-photo {
+
+            position: relative;
+
+            width: min(390px, 78vw);
+
+            background: #fffdf8;
+
+            padding: 18px 18px 65px;
+
+            box-shadow:
+                0 20px 40px rgba(76, 55, 57, 0.18),
+                0 3px 8px rgba(76, 55, 57, 0.10);
+
+            transform: rotate(-2deg);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.5s ease,
+                box-shadow 0.5s ease;
+
+            z-index: 5;
+        }
+
+        .missing-photo:hover {
+
+            transform:
+                rotate(0deg)
+                translateY(-8px)
+                scale(1.015);
+
+            box-shadow:
+                0 28px 50px rgba(76, 55, 57, 0.22),
+                0 5px 12px rgba(76, 55, 57, 0.12);
+        }
+
+
+        /* ================================
+           PHOTO FRAME
+        ================================= */
+
+        .empty-photo {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 4 / 4.5;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #e9d9d2,
+                    #eee4df 45%,
+                    #ddd4df
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        /*
+           Soft imaginary room silhouette
+        */
+
+        .empty-photo::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 42%,
+                    rgba(255,255,255,0.45),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    120deg,
+                    transparent 45%,
+                    rgba(126,104,105,0.09) 46%,
+                    transparent 47%
+                ),
+                linear-gradient(
+                    60deg,
+                    transparent 45%,
+                    rgba(126,104,105,0.07) 46%,
+                    transparent 47%
+                );
+
+            opacity: 0.8;
+        }
+
+
+        /* ================================
+           CENTER MESSAGE
+        ================================= */
+
+        .empty-photo-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .camera-icon {
+
+            font-size: 2.5rem;
+
+            color: #9b747a;
+
+            opacity: 0.65;
+
+            margin-bottom: 15px;
+        }
+
+        .empty-photo-content h3 {
+
+            font-family: "Caveat", cursive;
+
+            font-size: 2rem;
+
+            font-weight: 500;
+
+            color: #76595e;
+
+            margin: 0 0 8px;
+        }
+
+        .empty-photo-content p {
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 0.72rem;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+
+            color: #9a8586;
+
+            margin: 0;
+        }
+
+
+        /* ================================
+           POLAROID CAPTION
+        ================================= */
+
+        .polaroid-caption {
+
+            position: absolute;
+
+            bottom: 17px;
+
+            left: 0;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 1.45rem;
+
+            color: #73565b;
+        }
+
+
+        /* ================================
+           TAPE
+        ================================= */
+
+        .photo-tape {
+
+            position: absolute;
+
+            width: 110px;
+
+            height: 27px;
+
+            top: -15px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                rotate(-3deg);
+
+            background:
+                rgba(211, 185, 161, 0.68);
+
+            z-index: 10;
+
+            opacity: 0.85;
+        }
+
+
+        /* ================================
+           MEMORY NOTES
+        ================================= */
+
+        .memory-note {
+
+            position: absolute;
+
+            width: 185px;
+
+            min-height: 100px;
+
+            padding: 18px 18px 15px;
+
+            background: #fffaf0;
+
+            box-shadow:
+                0 8px 20px rgba(70, 50, 50, 0.10);
+
+            opacity: 0;
+
+            transform: translateY(20px) scale(0.9);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s cubic-bezier(.22,.61,.36,1);
+
+            z-index: 4;
+        }
+
+        .memory-note.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        .memory-note p {
+
+            font-family: "Caveat", cursive;
+
+            font-size: 1.25rem;
+
+            line-height: 1.35;
+
+            color: #72585c;
+
+            margin: 0;
+        }
+
+        .memory-note span {
+
+            display: block;
+
+            margin-top: 8px;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 0.62rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+
+            color: #aa8589;
+        }
+
+
+        /* Individual notes */
+
+        .note-one {
+
+            top: 20px;
+
+            left: 3%;
+
+            transform:
+                rotate(-7deg)
+                translateY(20px)
+                scale(0.9);
+        }
+
+        .note-one.show {
+
+            transform:
+                rotate(-7deg)
+                translateY(0)
+                scale(1);
+        }
+
+
+        .note-two {
+
+            top: 5px;
+
+            right: 4%;
+
+            transform:
+                rotate(6deg)
+                translateY(20px)
+                scale(0.9);
+        }
+
+        .note-two.show {
+
+            transform:
+                rotate(6deg)
+                translateY(0)
+                scale(1);
+        }
+
+
+        .note-three {
+
+            bottom: 40px;
+
+            left: 7%;
+
+            transform:
+                rotate(5deg)
+                translateY(20px)
+                scale(0.9);
+        }
+
+        .note-three.show {
+
+            transform:
+                rotate(5deg)
+                translateY(0)
+                scale(1);
+        }
+
+
+        .note-four {
+
+            bottom: 15px;
+
+            right: 5%;
+
+            transform:
+                rotate(-5deg)
+                translateY(20px)
+                scale(0.9);
+        }
+
+        .note-four.show {
+
+            transform:
+                rotate(-5deg)
+                translateY(0)
+                scale(1);
+        }
+
+
+        /* ================================
+           CLICK HINT
+        ================================= */
+
+        .photo-click-hint {
+
+            position: absolute;
+
+            bottom: -12px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            font-family: "Caveat", cursive;
+
+            font-size: 1.2rem;
+
+            color: #9a6e76;
+
+            white-space: nowrap;
+
+            transition:
+                opacity 0.4s ease;
+        }
+
+        .photo-click-hint.hide {
+
+            opacity: 0;
+        }
+
+
+        /* ================================
+           FINAL MESSAGE
+        ================================= */
+
+        .photo-final-message {
+
+            position: relative;
+
+            z-index: 3;
+
+            text-align: center;
+
+            max-width: 650px;
+
+            margin-top: 65px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .photo-final-message.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .photo-final-message .small-line {
+
+            font-family: "Caveat", cursive;
+
+            font-size: 1.45rem;
+
+            color: #8e6b70;
+
+            margin-bottom: 8px;
+        }
+
+        .photo-final-message h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(1.8rem, 4vw, 2.7rem);
+
+            line-height: 1.35;
+
+            color: #4e3d3f;
+
+            font-weight: 500;
+
+            margin: 0;
+        }
+
+        .photo-final-message h3 span {
+
+            color: #a36672;
+
+            font-style: italic;
+        }
+
+        .photo-final-message .infinity {
+
+            display: block;
+
+            margin-top: 20px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 2rem;
+
+            color: #a36d77;
+        }
+
+
+        /* ================================
+           ROOM 103 STAMP
+        ================================= */
+
+        .room-stamp {
+
+            position: relative;
+
+            margin-top: 45px;
+
+            padding: 13px 24px;
+
+            border: 1.5px dashed #b88c91;
+
+            color: #986a72;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            transform: rotate(-2deg);
+
+            opacity: 0;
+
+            transition:
+                opacity 1s ease 0.4s;
+        }
+
+        .room-stamp.show {
+
+            opacity: 1;
+        }
+
+        .room-stamp strong {
+
+            font-size: 0.78rem;
+
+            color: #7c555c;
+        }
+
+
+        /* ================================
+           FINAL CLOSING
+        ================================= */
+
+        .photo-closing {
+
+            margin-top: 65px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 1.25rem;
+
+            color: #8d6a6f;
+
+            opacity: 0;
+
+            transition:
+                opacity 1.2s ease;
+        }
+
+        .photo-closing.show {
+
+            opacity: 1;
+        }
+
+
+        /* ================================
+           DECORATIVE DOODLES
+        ================================= */
+
+        .photo-doodle {
+
+            position: absolute;
+
+            color: #b78b92;
+
+            opacity: 0.5;
+
+            pointer-events: none;
+
+            font-family: "Caveat", cursive;
+
+            z-index: 1;
+        }
+
+        .photo-doodle.one {
+
+            top: 12%;
+
+            left: 9%;
+
+            font-size: 2rem;
+
+            transform: rotate(-15deg);
+        }
+
+        .photo-doodle.two {
+
+            top: 19%;
+
+            right: 10%;
+
+            font-size: 1.8rem;
+
+            transform: rotate(12deg);
+        }
+
+        .photo-doodle.three {
+
+            bottom: 15%;
+
+            left: 12%;
+
+            font-size: 1.6rem;
+
+            transform: rotate(10deg);
+        }
+
+        .photo-doodle.four {
+
+            bottom: 11%;
+
+            right: 13%;
+
+            font-size: 2rem;
+
+            transform: rotate(-12deg);
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 700px) {
+
+            .photo-never-took {
+
+                padding:
+                    90px 18px 100px;
+            }
+
+            .photo-intro {
+
+                margin-bottom: 25px;
+            }
+
+            .photo-title {
+
+                font-size: 2.8rem;
+            }
+
+            .photo-description {
+
+                font-size: 0.88rem;
+            }
+
+            .photo-memory-stage {
+
+                min-height: 760px;
+
+                width: 100%;
+            }
+
+            .missing-photo {
+
+                width: min(330px, 82vw);
+            }
+
+            .memory-note {
+
+                width: 145px;
+
+                min-height: 85px;
+
+                padding: 13px;
+            }
+
+            .memory-note p {
+
+                font-size: 1.05rem;
+            }
+
+            .memory-note span {
+
+                font-size: 0.52rem;
+            }
+
+            .note-one {
+
+                top: 5px;
+
+                left: 0;
+            }
+
+            .note-two {
+
+                top: 5px;
+
+                right: 0;
+            }
+
+            .note-three {
+
+                bottom: 50px;
+
+                left: 0;
+            }
+
+            .note-four {
+
+                bottom: 25px;
+
+                right: 0;
+            }
+
+            .photo-final-message {
+
+                margin-top: 20px;
+            }
+
+            .photo-final-message h3 {
+
+                font-size: 1.8rem;
+            }
+
+            .photo-closing {
+
+                margin-top: 45px;
+
+                font-size: 1.15rem;
+            }
+
+            .photo-doodle {
+
+                opacity: 0.25;
+            }
+        }
+
+
+        @media (max-width: 430px) {
+
+            .memory-note {
+
+                width: 130px;
+            }
+
+            .memory-note p {
+
+                font-size: 0.98rem;
+            }
+
+            .note-one,
+            .note-three {
+
+                left: -5px;
+            }
+
+            .note-two,
+            .note-four {
+
+                right: -5px;
+            }
+        }
+
+    </style>
+
+
+    <!-- ================================
+         DOODLES
+    ================================= -->
+
+    <div class="photo-doodle one">♡</div>
+    <div class="photo-doodle two">✦</div>
+    <div class="photo-doodle three">✧</div>
+    <div class="photo-doodle four">♡</div>
+
+
+    <!-- ================================
+         INTRO
+    ================================= -->
+
+    <div class="photo-intro">
+
+        <div class="photo-eyebrow">
+            one last little thing...
+        </div>
+
+        <h2 class="photo-title">
+            The Photo We <span>Never Took.</span>
+        </h2>
+
+        <p class="photo-description">
+            There is one photo missing from our four years.
+            Not because we forgot to take it...
+            but because we were too busy living it.
+        </p>
+
+    </div>
+
+
+    <!-- ================================
+         MEMORY STAGE
+    ================================= -->
+
+    <div class="photo-memory-stage">
+
+
+        <!-- MEMORY NOTE 1 -->
+
+        <div class="memory-note note-one">
+
+            <p>
+                Four years.
+                One room.
+                A thousand stories.
+            </p>
+
+            <span>
+                Room 103
+            </span>
+
+        </div>
+
+
+        <!-- MEMORY NOTE 2 -->
+
+        <div class="memory-note note-two">
+
+            <p>
+                We were too busy
+                laughing to remember
+                to take a picture.
+            </p>
+
+            <span>
+                probably 😂
+            </span>
+
+        </div>
+
+
+        <!-- POLAROID -->
+
+        <div
+            class="missing-photo"
+            id="missingPhoto"
+        >
+
+            <div class="photo-tape"></div>
+
+            <div class="empty-photo">
+
+                <div class="empty-photo-content">
+
+                    <div class="camera-icon">
+                        ♡
+                    </div>
+
+                    <h3>
+                        The photo<br>
+                        we never took.
+                    </h3>
+
+                    <p>
+                        tap to remember
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="polaroid-caption">
+                us — Room 103, forever ♡
+            </div>
+
+        </div>
+
+
+        <!-- MEMORY NOTE 3 -->
+
+        <div class="memory-note note-three">
+
+            <p>
+                Maybe this is
+                the only photo
+                that doesn't need
+                a camera.
+            </p>
+
+            <span>
+                because we remember
+            </span>
+
+        </div>
+
+
+        <!-- MEMORY NOTE 4 -->
+
+        <div class="memory-note note-four">
+
+            <p>
+                The room may change.
+                The memories won't.
+            </p>
+
+            <span>
+                13.09.2023 → ∞
+            </span>
+
+        </div>
+
+
+        <!-- CLICK HINT -->
+
+        <div
+            class="photo-click-hint"
+            id="photoClickHint"
+        >
+            tap the photo ♡
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         FINAL MESSAGE
+    ================================= -->
+
+    <div
+        class="photo-final-message"
+        id="photoFinalMessage"
+    >
+
+        <div class="small-line">
+            because sometimes...
+        </div>
+
+        <h3>
+            the memories we never
+            <span>photographed</span>
+            are the ones we remember forever.
+        </h3>
+
+        <span class="infinity">
+            four years · one room · forever us ♡
+        </span>
+
+    </div>
+
+
+    <!-- ================================
+         ROOM 103 STAMP
+    ================================= -->
+
+    <div
+        class="room-stamp"
+        id="roomStamp"
+    >
+
+        <strong>ROOM 103</strong>
+        &nbsp;•&nbsp;
+        ARCHIVE NO. 103
+        &nbsp;•&nbsp;
+        <strong>PERMANENTLY OPEN</strong>
+
+    </div>
+
+
+    <!-- ================================
+         FINAL CLOSING
+    ================================= -->
+
+    <div
+        class="photo-closing"
+        id="photoClosing"
+    >
+        Room 103 may be closing...
+        but our story definitely isn't. ♡
+    </div>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        const missingPhoto =
+            document.getElementById("missingPhoto");
+
+        const memoryNotes =
+            document.querySelectorAll(".memory-note");
+
+        const photoFinalMessage =
+            document.getElementById("photoFinalMessage");
+
+        const roomStamp =
+            document.getElementById("roomStamp");
+
+        const photoClosing =
+            document.getElementById("photoClosing");
+
+        const photoClickHint =
+            document.getElementById("photoClickHint");
+
+
+        let photoOpened = false;
+
+
+        /* --------------------------------
+           CLICK THE POLAROID
+        -------------------------------- */
+
+        missingPhoto.addEventListener(
+            "click",
+            function () {
+
+                if (photoOpened) return;
+
+                photoOpened = true;
+
+
+                /* Hide hint */
+
+                photoClickHint.classList.add("hide");
+
+
+                /* Slightly enlarge photo */
+
+                missingPhoto.style.transform =
+                    "rotate(0deg) scale(1.035)";
+
+
+                /* Reveal memory notes one by one */
+
+                memoryNotes.forEach(
+                    function (note, index) {
+
+                        setTimeout(
+                            function () {
+
+                                note.classList.add("show");
+
+                            },
+                            450 + (index * 450)
+                        );
+
+                    }
+                );
+
+
+                /*
+                   Reveal final message
+                   after all memories appear.
+                */
+
+                setTimeout(
+                    function () {
+
+                        photoFinalMessage
+                            .classList
+                            .add("show");
+
+                    },
+                    2400
+                );
+
+
+                /* Room 103 stamp */
+
+                setTimeout(
+                    function () {
+
+                        roomStamp
+                            .classList
+                            .add("show");
+
+                    },
+                    2900
+                );
+
+
+                /* Final line */
+
+                setTimeout(
+                    function () {
+
+                        photoClosing
+                            .classList
+                            .add("show");
+
+                    },
+                    3500
+                );
+
+
+                /* Tiny floating hearts */
+
+                createPhotoHearts();
+
+            }
+        );
+
+
+        /* --------------------------------
+           FLOATING HEARTS
+        -------------------------------- */
+
+        function createPhotoHearts() {
+
+            const symbols = [
+                "♡",
+                "♡",
+                "♥",
+                "✦",
+                "♡",
+                "✧"
+            ];
+
+
+            for (
+                let i = 0;
+                i < 16;
+                i++
+            ) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random() *
+                            symbols.length
+                        )
+                    ];
+
+
+                heart.style.position =
+                    "fixed";
+
+                heart.style.zIndex =
+                    "9999";
+
+                heart.style.pointerEvents =
+                    "none";
+
+                heart.style.left =
+                    (
+                        35 +
+                        Math.random() * 30
+                    ) + "vw";
+
+                heart.style.top =
+                    (
+                        45 +
+                        Math.random() * 20
+                    ) + "vh";
+
+                heart.style.fontSize =
+                    (
+                        0.9 +
+                        Math.random() * 0.8
+                    ) + "rem";
+
+                heart.style.color =
+                    "#ae7882";
+
+
+                heart.animate(
+                    [
+                        {
+                            opacity: 0,
+                            transform:
+                                "translateY(0) scale(.5)"
+                        },
+                        {
+                            opacity: 0.8,
+                            transform:
+                                "translateY(-40px) scale(1)"
+                        },
+                        {
+                            opacity: 0,
+                            transform:
+                                "translateY(-150px) translateX(" +
+                                (
+                                    Math.random() * 100 - 50
+                                ) +
+                                "px) scale(1.3)"
+                        }
+                    ],
+                    {
+                        duration:
+                            1800 +
+                            Math.random() * 1000,
+
+                        easing:
+                            "ease-out"
+                    }
+                );
+
+
+                document.body.appendChild(
+                    heart
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        heart.remove();
+
+                    },
+                    3000
+                );
+
+            }
+
+        }
+
+    </script>
+
+</section>
+
+    <script>
+
+        function enterArchive() {
+
+            document
+                .getElementById("roommate-era")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
